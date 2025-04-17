@@ -2,5 +2,5 @@
 	path = ciclo-4/ciberseguranca/login-seguro
 	url = https://github.com/miguelscastro/login-seguro
 [submodule "ciclo-4/java/cake-designer"]
-	path = ciclo-4/java/cakedesigner
-	url = https://github.com/miguelscastro/cakedesigner
+	path = ciclo-4/java/cake-designer
+	url = https://github.com/miguelscastro/cake-designer
