@@ -8,7 +8,7 @@ void main() {
     a = 3;
   
     var b = 2;
-    int c = soma(a, b);
+    int c = somar(a, b);
   
     // Comentário em linha    
   
@@ -28,6 +28,6 @@ void main() {
 
 }
  
-soma(a, b) { 
+somar(a, b) { 
     return a + b;
 }

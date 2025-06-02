@@ -1,2 +1,0 @@
-C:/Users/micas/Code/fatec-bs/ciclo-5/flutter-dart/material/arquivos-aulas/aula14_01/android/app/.cxx/Debug/691l3l4y/armeabi-v7a/CMakeFiles/edit_cache.dir
-C:/Users/micas/Code/fatec-bs/ciclo-5/flutter-dart/material/arquivos-aulas/aula14_01/android/app/.cxx/Debug/691l3l4y/armeabi-v7a/CMakeFiles/rebuild_cache.dir
