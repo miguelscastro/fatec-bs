@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<html xmlns="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CakeDesigner - Bolos</title>
+    <link rel="stylesheet" th:href="@{/css/index-produtos.css}">
+
+    <!-- ícones -->
+    <script src="https://kit.fontawesome.com/20918d4472.js" crossorigin="anonymous"></script>
+
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick-theme.css" />
+</head>
+
+<body>
+    <header>
+        <nav id="header-config">
+            <a class="logo-config" th:href="@{/}"><img th:src="@{/images/header-img.jpg}" alt="Logo"></a>
+            <div id="caminhosNav">
+                <a th:href="@{/gerirProdutos}">Adm</a><span>|</span>
+                <select id="dropdown" onchange="trocarPag()">
+                    <option value="/">Produtos</option>
+                    <option value="/bolos" selected>Bolos</option>
+                    <option value="/bolosDePote">Bolos de Pote</option>
+                    <option value="/cupcakes">Cupcakes</option>
+                    <option value="/doces">Doces</option>
+                </select>
+                <a href="https://wa.me/" target="_blank" class="caminhoWhats">Peça no WhatsApp <i
+                        class="fa-brands fa-whatsapp"></i></a>
+                <div id="sociais">
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="banner">
+        <div><img th:src="@{/images/banner/bolos.png}" alt="" class="carrossel-item">
+        </div>
+    </div>
+    <main>
+        <h1>Conheça nossos sabores</h1>
+        <div id="produtos-container">
+            <div id="produto-card" th:if="${produto.nm_tipoproduto == 'Bolo'}" th:each="produto : ${listaProdutos}">
+                <!-- especifica qual tipo de produto deve ser retornado -->
+                <p th:text="'#' + ${produto.cd_produto}"></p>
+                <img th:src="@{'/images/' + ${produto.ds_caminhoImagem}}" alt="imagem do produto" width="100"
+                    height="100">
+                <a th:text="${produto.nm_produto}" th:href="@{'/bolos/' + ${produto.cd_produto}}"></a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <nav id="footer-config">
+            <a class="logo-config" th:href="@{/}"><img th:src="@{/images/header-img.jpg}" alt="Logo"></a>
+            <div id="caminhosNav">
+                <a th:href="@{/gerirProdutos}">Adm</a><span>|</span>                <a href="">Produtos</a>
+                <a href="https://wa.me/" target="_blank" class="caminhoWhats">Peça no WhatsApp <i
+                        class="fa-brands fa-whatsapp"></i></a>
+                <div id="sociais">
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </nav>
+    </footer>
+
+    <!-- Slick Slider Scripts -->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
+    <!-- Definições do Slick Slider -->
+    <script th:src="@{/js/slick.js}"></script>
+    <!-- Scripts da pagina -->
+    <script th:src="@{/js/scripts.js}"></script>
+</body>
+
+</html>

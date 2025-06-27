@@ -1,0 +1,247 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container principal */
+main#main {
+    background-color: #ffffff;
+    height: 80%;
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+}
+
+#imgs {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    margin-top: 20px;
+    fill: black;
+}
+
+#imgs svg {
+    width: 100px;
+    height: auto;
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    width: 100%;
+    border-bottom: 2px solid #646464;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #646464;
+}
+
+#main h2 {
+    color: #646464;
+    background-color: #ebe8e8;
+    padding: 2%;
+    margin-top: 2%;
+    border-radius: 10px;
+}
+
+/* Pesquisa e Entrar */
+#pesquisarEntrar {
+    display: flex;
+    align-items: center;
+}
+
+#pesquisar {
+    display: flex;
+    align-items: center;
+    background-color: #ebe8e8;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-right: 20px;
+}
+
+#pesquisar label {
+    color: #4B3832;
+}
+
+#pesquisar input {
+    background: none;
+    border: none;
+    color: #4B3832;
+    padding: 10px;
+    outline: none;
+    width: 150px;
+}
+
+#pesquisar button {
+    background: none;
+    border: none;
+    color: #4B3832;
+    cursor: pointer;
+}
+
+#entrar a {
+    color: #4B3832;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+#entrar a i {
+    margin-right: 8px;
+}
+
+/* Cookies */
+#cookies {
+    background-color: #ebe8e8;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#cookies p {
+    margin-bottom: 10px;
+    color: #4B3832;
+}
+
+#cookies button {
+    background-color: #4B3832;
+    border: none;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#cookies button:hover {
+    background-color: #6B4F4B;
+}
+
+#tabelaUsuarios {
+    background-color: #ebe8e8;
+    font-size: 120%;
+    padding: 2%;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 10px;
+    width: 100%;
+    gap: 2rem;
+    margin-top: 2%;
+}
+
+#tabelaUsuarios th {
+    color: #777777;
+}
+
+#tabelaUsuarios a {
+    text-decoration: none;
+    color: #646464;
+    padding: 5%;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#tabelaUsuarios input[type="submit"] {
+    color: #646464;
+    padding: 5%;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#newAdm {
+    background-color: #ebe8e8;
+    font-size: 100%;
+    padding: 2%;
+    /* text-align: center; */
+    border-radius: 10px;
+    width: 100%;
+    gap: 2rem;
+    margin-top: 2%;
+    color: #646464;
+}
+
+#newAdm h2 {
+    margin: 0;
+    background-color: inherit;
+}
+
+#newAdm a {
+    text-decoration: none;
+    color: #646464;
+    background-color: #dddddd;
+    border-radius: 10px;
+    padding: 1%;
+    margin-left: 2%;
+}
+
+.pwd {
+    font-size: 50%;
+}
+
+thead {
+    font-size: 130%;
+}
+
+#dados,
+#recuperarSenha,
+#excluirConta {
+    color: #646464;
+    background-color: #f0f0f0;
+    padding: 2%;
+    margin-top: 2%;
+    border-radius: 10px;
+}
+
+#dados h2,
+#recuperarSenha h3,
+#excluirConta h3 {
+    margin-bottom: 2%;
+    background-color: #f0f0f0;
+    color: #646464;
+}
+
+#recuperarSenha a,
+#excluirConta a {
+    text-decoration: none;
+    color: #646464;
+    background-color: #dddddd;
+    border-radius: 10px;
+    padding: 1%;
+}
+
+#recuperarSenha a:hover,
+#excluirConta a:hover {
+    background-color: #cacaca;
+}

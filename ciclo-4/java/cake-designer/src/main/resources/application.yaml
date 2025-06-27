@@ -1,0 +1,29 @@
+server: 
+    port: 8080
+
+spring:
+    servlet:
+        multipart:
+            enabled: true
+            max-file-size: 10MB
+            max-request-size: 10MB
+    datasource:
+    # Sensible info is exposed due to render free plan not comprehending environment variables
+    # expires in 3 months
+        url: jdbc:postgresql://dpg-cvopdifgi27c73asqrag-a:5432/cakedesigner_db
+        username: admin
+        password: wv7sqDbGLV5NYkoH2aAsRG8nJAE3MqYw
+        driver-class-name: org.postgresql.Driver
+    
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
+            generate-ddl: true
+        
+    sql:
+        init:
+            schema-locations: classpath:/schema-postgresql.sql
+            mode: always
+            platform: postgres
+    thymeleaf:
+        cache: false
