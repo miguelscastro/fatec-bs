@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+    <head>
+        <title>Listagem de Clientes</title>
+    </head>
+    <body>
+        <h1>Listagem de Clientes</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cliente : ${clientes}">
+                    <td th:text="${cliente.id}"></td>
+                    <td th:text="${cliente.nome}"></td>
+                    <td th:text="${cliente.cpf}"></td>
+                    <td><a th:href="@{'/atualizar/' + ${cliente.id}}">Atualizar</a></td>
+                    <td>
+                        <form th:action="@{'/deletar/' + ${cliente.id}}" method="post">
+                            <input type="submit" value="Apagar">
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/}">Voltar</a>
+    </body>
+</html>

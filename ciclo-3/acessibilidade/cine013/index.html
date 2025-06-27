@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine013 - Início</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"
+        integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+        integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="home-assets/styles/home.css">
+    <script src="https://kit.fontawesome.com/20918d4472.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header id="topo">
+        <div id="atalhos">
+            <a href="#topo"><span class="tecla-atalho">F1</span> Inicio</a>
+            <a href="#1"><span class="tecla-atalho">F2</span> Filmes</a>
+            <a href="#social"><span class="tecla-atalho">F3</span> Redes Sociais</a>
+        </div>
+        <nav>
+            <span id="nav-logo"><a href="index.html">Cine013</a></span>
+            <div id="linksNav">
+               <a href="index.html" id="toHome">Home</a>
+                <a href="ratings/ratings.html" id="toRatings">Avaliações</a>
+            </div>
+            <ul id="nav-bar">
+                <li>
+                    <button id="nav-btn" onclick="sair()"><span class="sr-only">Sair</span>
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                </li>
+                <li class="fit"><a href="login/assets/html/signin.html"><i class="fa-regular fa-user"></i>
+                        <p id="logado" class="">Login</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-magnifying-glass"></i><span class="sr-only">Pesquisa</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="carrossel">
+        <div><img src="home-assets/carrossel/cinenacional.png"
+                alt="imagem de perfil de um homem e mulher sentados assistindo a um filme no cinema"
+                class="carrossel-item"></div>
+        <div><img src="home-assets/carrossel/anya.png" alt="imagem dos personagens principais do anime SpyXFamily"
+                class="carrossel-item"></div>
+        <div><img src="home-assets/carrossel/pooh.png"
+                alt="imagem ilustrativa do personagem principal do filme Pooh (versão terror)" class="carrossel-item">
+        </div>
+        <div><img src="home-assets/carrossel/GxK.png"
+                alt="Cartaz do filme Godzilla X King Kong; Novo Império. Ilustração dos personagens titãs Godzilla e KingKong no horizonte com suas siglas em destaque e cristo redentor mais na frente seguido de vários helicópteros sobrevoando em direção aos titãs"
+                class="
+                carrossel-item">
+        </div>
+        <div><img src="home-assets/carrossel/kung-fu-po.png"
+                alt="Cartaz do filme Kung Fu Panda 4. Ilustração de um urso panda segurando uma arma verde brilhante com uma montanha de fundo"
+                class="carrossel-item">
+        </div>
+        <div><img src="home-assets/carrossel/planeta-dos-macacos.png"
+                alt="ilustração de um Macaco Rei de fundo com o protagonista Cesar e uma garota mais a frente"
+                class="carrossel-item">
+        </div>
+    </div>
+    <main class="contain">
+        <h1 id="Filmesh1">Filmes</h1>
+        <button onclick="changeSection(this)" id="buttonCartaz" class="vermelho button">Lançamentos</button>
+        <button onclick="changeSection(this)" id="buttonBreve" class="button">Em breve</button>
+        <p id="1"></p>
+
+        <h2 id="h2Cartaz" class="h2">Em Cartaz</h2>
+        <h2 id="h2Breve" class="sr-only h2">Em Breve</h2>
+        
+        <ul id="emCartaz">
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/garfielddd.jpg"
+                        alt="Cartaz do filme Garfield. Animação de um gato laranja sendo segurado por mãos brancas ao fundo azul.">
+                    <figcaption>Garfield</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/rivais.webp"
+                        alt="Cartaz do filme Rivais. Animação do rosto de uma mulher jovem parda, de cabelo marrom com mechas loiras, usando óculos escuros roxo com o reflexo de dois homens jogando tênis">
+                    <figcaption>Rivais</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/kungfu.jpg"
+                        alt="Cartaz do filme Kung Fu Panda 4. Ilustração de um urso panda segurando uma arma verde brilhante no fundo verde neon e branco.">
+                    <figcaption>Kung Fu Panda 4</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/guerracivil.webp"
+                        alt="Cartaz do filme Guerra Civil. Foto de uma mulher branca loira e um homem branco dos cabelos castanhos, ambos com expressão de coragem e força em um fundo de céu cinza com um helicóptero pequeno sobrevoando uma estrada com carros e grama entre as duas vias.">
+                    <figcaption>Guerra Civil</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/eviamor.jpg"
+                        alt="Cartaz do filme Evidências do Amor. Capa com o ator Fábio Porchat, um homem adulto branco de cabelos castanhos e bigode, usando um óculos preto e um fone de ouvido vermelho. O fundo da foto são dois círculos um dentro do outro contendo momentos do filme com uma mulher branca de cabelos castanhos e batom vermelho.">
+                    <figcaption>Evidências do amor</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/abigail.webp"
+                        alt="Cartaz do filme Abigail. Menina criança branca com o cabelo loiro preso em um coque, usando um vestido branco de balé está sentada no chão preto olhando pra cima. ">
+                    <figcaption>Abigail</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/ContraOMundo.jpg"
+                        alt="Cartaz do filme Contra o Mundo. Arte com 9 personagens do filme preparados para lutar. Estão em um fundo amarelo com uma moldura vermelha. O personagem em destaque é um homem branco de cabelo castanho claro e os dois punhos fechados.">
+                    <figcaption>Contra o Mundo</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/JorgeDaCapadocia.jpg"
+                        alt="Cartaz do filme Jorge da Capadócia. Homem branco de cabelos castanhos usando uma blusa vermelha e um colete marrom por cima. O homem está com a mão na boca e olhando para baixo e atrás do mesmo tem apenas a cabeça de um dragão.">
+                    <figcaption>Jorge da Capadócia</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/a-teia.png"
+                        alt="Cartaz do filme A Teia. Um senhor branco de barba branca e touca preta na cabeça. Em seu fundo há um painel com vários papeis e do lado esquerdo há um espelho quebrado com metade do seu reflexo.">
+                    <figcaption>A Teia</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/GxK-novo-imperio.png"
+                        alt="Cartaz do filme Godzilla X King Kong; Novo Império. Ilustração dos personagens titãs Godzilla e KingKong no horizonte com suas siglas em destaque e cristo redentor mais na frente seguido de vários helicópteros sobrevoando em direção aos titãs">
+                    <figcaption>Godzilla X King Kong: Novo Império</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/spy-x-family.png"
+                        alt="Cartaz do filme Spy Family. Ilustração com fundo azul e 4 personagens do filme. A personagem em destaque é uma menina branca de cabelo rosa e chapéu vermelho segurando um baú brilhante.">
+                    <figcaption>Spy X Family: Código Branco</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/apocalipse-de-gelo.png"
+                        alt="Cartaz do filme Ghostbusters: Apocalipse de Gelo. Ilustração dos caçadores de fantasmas de costas utilizando roupas vermelhas ao lado do carro que está no centro da imagem. O carro é branco e tem o símbolo de um fantasma com um circulo vermelho em volta e um risco no meio. O fundo da imagem é uma tempestade de gelo com a predominância das cores azul e branca.">
+                    <figcaption>Ghostbusters: Apocalipse de Gelo</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/ferias-trocadas.png"
+                        alt="Cartaz do filme Férias Trocadas. Foto de 6 pessoas com roupas coloridas e mochilas na praia. Elas estão em pé na areia e o fundo é azul sendo o céu e a água.">
+                    <figcaption>Férias Trocadas</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/duble.png"
+                        alt="Cartaz do filme Dublê. Homem branco de cabelo castanho claro sendo içado pela garra de um caminhão e ao fundo um céu azul e uma explosão com fogo laranja, amarelo e poeira cinza.">
+                    <figcaption>Dublê</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/gatodesorte.png"
+                        alt="Cartaz do filme Um gato de Sorte. Ilustração de um gato cinza com a barriga e queixos brancos utilizando uma coleira vermelha. O gato está sentado com cara de bravo e todo o fundo da ilustração é azul.">
+                    <figcaption>Um Gato de Sorte</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/primeiraprofecia.png"
+                        alt="Cartaz do filme A primeira Profecia. Ilustração de uma igreja branca com uma a sombra de uma pessoa desenhada em preto como se estivesse entrando na igreja. No chão em frente à igreja há a sombra de uma cruz.">
+                    <figcaption>A Primeira Profecia</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/thechosen.png"
+                        alt="Cartaz do filme The Chosen: Os escolhidos. A imagem é uma arte de fundo branco com os personagens em destaque. O homeme em destaque tem a pele parda, cabelo, barba e bigode de cor preta e usa um lenço na cabeça.">
+                    <figcaption>The Chosen: Os Escolhidos</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/farofeiros.png"
+                        alt="Cartaz do filme os Farofeiros 2. A imagem é uma arte com 8 personagens do filme com roupas coloridas em um cenário de cores quentes com estilo praiano e um ônibus branco na frente.">
+                    <figcaption>Os Farofeiros 2</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/duna2.png"
+                        alt="Cartaz do filme Duna parte dois. Homem jovem branco de cabelos castanhos e mulher jovem parda de cabelos castanhos, ambos em pé na parte inferior da imagem segurando uma adaga e usando roupas de guerreiros no fundo laranja.">
+                    <figcaption>Duna: Parte Dois</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emCartaz/boy-crane.png"
+                        alt="Cartaz do filme O menino e a Garça. Ilustração de um menino branco de cabelos castanhos segurando um arco e de uma garça branca com a cabeça e asas azuis. Ambos estão em cima de uma rocha, ao fundo da imagem há um céu azul com nuvens brancas e uma casa medieval.">
+                    <figcaption>O Menino e a Garça</figcaption>
+                </figure>
+            </li>
+        </ul>
+        <ul id="emBreve">
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/furiosa-umasagamadmax.png"
+                        alt="Foto do Cartaz do Filme Furiosa: Uma Saga MadMax. O cartaz é composto por cores quentes, ilustrando um clima calor e mostra 4 personagens do filme utilizando roupas de couro e pinturas e de guerra no rosto.">
+                    <figcaption>Furiosa: Uma Saga MadMax</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/malvado-favorito-4.png"
+                        alt="Cartaz do Filme Meu Malvado Favorito 4. O cartaz ilustra o personagem principal, Gru, um minion ao seu lado e um bebê em suas costas em um cenário de fumaça azul e laranja.">
+                    <figcaption>Meu Malvado Favorito 4</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/deadpool3.png"
+                        alt="Cartaz do Filme Deadpool e Wolverine. O cartaz ilustra duas correntes, cada uma com pingente de metade de um coração, juntas formam um coração inteiro. O pingente do lado esquerdo é metade do rosto do deadpool com cores vermelho e preta e a outra metade, o rosto do wolevrine com cores amarelo e preta.   ">
+                    <figcaption>Deadpool e Wolverine</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/divertidamente2.png"
+                        alt="Cartaz do Filme Divertidamente 2. O cartaz ilustra cinco personagens animados, um azul, um vermelho, um amarelo com cabelo azul, um verde e um roxo em cima de uma tampa, que prende outros três perosnagens em um buraco.">
+                    <figcaption>Divertidamente 2</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/silvio.png"
+                        alt="Cartaz do Filme Silvio. O cartaz contém o personagem principal do filme com o rosto de lado olhando para o canto inferior esquerdo, vestindo um terno com uma gravata vermelha e um microfone preso à altura do peitoral.">
+                    <figcaption>Silvio</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/cesar.png"
+                        alt="Cartaz do Filme Planeta dos Macacos. O cartaz ilutra um macaco andando à cavalo em meio à uma floresta e segurando uma águia em sua mão esquerda.">
+                    <figcaption>Planeta dos Macacos: O Reinado</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/amigos-imaginarios.png"
+                        alt="Cartaz do Filme Amigos Imaginários. O cartaz do filme ilustra oito personagens animados e dois personagens reais. O personagem de destaque é o maior, com coloração roxa e pelúcia. Os dois personagens reais estão abraçados à ele, enquanto as outras animações, entre elas, uma banana com olhos, boca e braços, um robô e um unicórnio com nariz rosa e cabelos verde, estão em seu entorno.">
+                    <figcaption>Amigos Imaginários</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/imaculada.png"
+                        alt="Cartaz do Filme Imaculada. O cartaz exibe a imagem o rosto de uma freira de pele branca e olhos verdes com o rosto de lado olhando para a esquerda.">
+                    <figcaption>Imaculada</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/kraven-ocacador.png"
+                        alt="Cartaz do Filme Kraven: O Caçador. O cartaz mostra o personagem principal sentando em um trono com galhos. O personagem possui cabelo e barba de cor preta e veste um casaco de pelos e calça marrom enquanto apoia seu braço esquerdo no trono e sua mão direita em seu queixo.">
+                    <figcaption>Kraven: O Caçador</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/menina-dragao.png"
+                        alt="Cartaz do Filme A Menina e o Dragão. O cartaz ilustra o dois personagens que dão nome ao filme. O dragão encontra-se à esquerda do cartaz, é branco e possui cabelos, sobrancelha e cavanhaque ruivos, enquanto a menina está à direita, tem pele branca, cabelos pretos e usa roupa branca enquanto está indo com a mão em direção à cabeça do dragão, como se fosse fazer carinho, enquanto se encaram em um cenário com o sol ao fundo.">
+                    <figcaption>A Menina e o Dragão</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/clube-vandalos.png"
+                        alt="Cartaz do Filme Clube dos Vândalos. O cartaz mostra um homem de cabelo preto vestindo uma jaqueta de couro preta e emblema branco, sentado em uma moto na beira de uma estrada com terreno verde ao fundo.">
+                    <figcaption>Clube dos Vândalos</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/raven.png"
+                        alt="Cartaz do Filme O Corvo. O cartaz exibe o rosto de um homem branco com uma grande quantidade de maquiagem preta saindo de seu olho e escorrendo por todo seu rosto em um cenário totalmente preto. ">
+                    <figcaption>O Corvo</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/alien.png"
+                        alt="Cartaz do Filme Alien: Romulus. O cartaz ilustra na sua parte mais alta, a boca do personagem Alien mostrando os dentes e a saliva escorrendo até o meio do cartaz com um cenário totalmente preto.">
+                    <figcaption>Alien: Romulus</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/coringa2.png"
+                        alt="Cartaz do Filme Coringa: Delírio a Dois. O cartaz exibe o personagem Coringa vestindo terno com gravata borboleta e com sua tradicional maquiagem branca, com boca e nariz vermelhos e cabelos verdes, segurando uma mulher de pele branca, também com a boca vermelha e usando vestido branco com um cenário de escuro com uma luz verde vinda do canto superior direito.">
+                    <figcaption>Coringa: Delírio à Dois</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/robo-selvagem.png"
+                        alt="Cartaz do Filme Robô Selvagem. O cartaz ilustra o personagem animado Robô olhando para frente e indo com a mão em direção frontal, como se fosse tocar em algo. O robô é branco e em volta de seus olhos tem luzes azuis e dois furinhos entre seus olhos, um em cima do outro. O cenário é envolto de algumas plantas.">
+                    <figcaption>Robô Selvagem</figcaption>
+                </figure>
+            </li>
+            <li tabindex="0">
+                <figure>
+                    <img src="home-assets/banners/emBreve/a-caca.png"
+                        alt="Cartaz do Filme A Caça. O cartaz mostra o rosto de uma mulher com uma arma ao lado, ambos acima do mar e embaixo há um barquinho com várias pessoas">
+                    <figcaption>A Caça</figcaption>
+                </figure>
+            </li>
+        </ul>
+    </main>
+    <footer class="contain" id="footer">
+        <div id="logo-social">
+            <span id="footer-logo"><a href="index.html">Cine013</a></span>
+            <ul id="social">
+                <li><a href="https://web.facebook.com/?_rdc=1&_rdr" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i><span class="sr-only">Facebook</span></a></li>
+                <li><a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i><span
+                            class="sr-only">X (Twitter)</span></a></li>
+                <li><a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i><span
+                            class="sr-only">Instagram</span></a></li>
+                <li><a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i><span
+                            class="sr-only">Youtube</span></a></li>
+            </ul>
+            <button id="toTop" onclick="toTop()">
+                <span class="sr-only">Voltar ao topo</span><i class="fa-solid fa-angle-up"></i>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Bibliotecas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.1/jquery-migrate.min.js"
+        integrity="sha512-KgffulL3mxrOsDicgQWA11O6q6oKeWcV00VxgfJw4TcM8XRQT8Df9EsrYxDf7tpVpfl3qcYD96BpyPvA4d1FDQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/home-assets/scripts/slick.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+        integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="home-assets/scripts/home.js"></script>
+    <script src="login/assets/js/loginP.js"></script>
+</body>
+
+</html>

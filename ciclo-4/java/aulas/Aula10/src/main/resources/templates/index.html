@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+<head>
+    <title>
+        PRIMEIRA PAGINA
+    </title>
+</head>
+<body>
+    <h1>Ola, Mundo</h1>
+    <button id="btn1">OK</button>
+    <img th:src="@{img/c.jpg}" alt="">
+    <script th:src="@{js/index.js}"></script>
+    <ul>
+        <li><a th:href="@{/p1}">PAGINA1</a></li>
+        <li><a th:href="@{/p2}">PAGINA2</a></li>
+    </ul>
+</body>
+</html>

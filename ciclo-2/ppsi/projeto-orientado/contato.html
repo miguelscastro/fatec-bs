@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Sistemas para Internet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="border">
+        <nav>
+            <span id="h1">Projeto Orientado</span>
+            <p id="head">
+                <a href="index.html">Home</a><a href="miguel.html">Miguel Castro</a><a href="breno.html">Breno Neves</a><a href="tabela.html">Tabela de curiosidades</a><a href="fav.html">Sites favoritos</a><a id="linkcolor" href="contato.html">Fale conosco!</a>
+            </p>
+        </nav>
+    </header>
+    <div id="form">
+        <form>
+            <label for="nome">Nome</label>
+            <input class="backcolorForm" type="text" name="nome" id="nome" value="" required autofocus>
+    
+            <label for="motivo-contato">Sua mensagem</label>
+            <textarea class="backcolorForm" name="motivo-contato" id="motivo-contato" required cols="45" rows="8" maxlength="648"></textarea>
+            <p class="h3">Como quer ser contatado?</p>                
+        
+            <div class="groupleft">
+                <label for="contato-email-box">E-mail</label>
+                <input type="checkbox" name="contato[]" value="email-box" id="contato-email-box">
+            </div>
+            <input type="email" name="contato" value="" maxlength="70" id="contato-email" class="backcolorForm"><br>
+            
+            <div class="groupleft">
+                <label for="contato-telefone-box">Telefone</label>
+                <input type="checkbox" name="contato[]" value="telefone" id="contato-telefone-box">
+            </div>
+            <input type="text" name="contato" value="" id="contato-telefone" class="backcolorForm"><br>
+            
+            <div class="groupleft">
+                <label for="contato-whatsapp-box">WhatsApp</label>
+                <input type="checkbox" name="contato[]" value="whatsapp" id="contato-whatsapp-box">
+            </div>
+            <input type="text" name="contato" value="" id="contato-whatsapp" class="backcolorForm"><br>
+    
+            <button type="submit" id="button">Enviar</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

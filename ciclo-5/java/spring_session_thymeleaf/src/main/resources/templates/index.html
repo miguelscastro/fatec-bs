@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sessão com Spring + Thymeleaf</title>
+</head>
+<body>
+    <h1>Exemplo de Sessão com Thymeleaf</h1>
+
+    <form method="post" action="/salvar">
+        <input type="text" name="valor" placeholder="Digite algo" required />
+        <button type="submit">Salvar na Sessão</button>
+    </form>
+
+    <hr/>
+
+    <div th:if="${valorSessao != null}">
+        <p><strong>Valor atual na sessão:</strong> <span th:text="${valorSessao}"></span></p>
+    </div>
+    <div th:if="${valorSessao == null}">
+        <p><i>Nenhum valor salvo na sessão ainda.</i></p>
+    </div>
+</body>
+</html>

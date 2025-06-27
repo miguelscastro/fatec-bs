@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Layouts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img src="imagens/fatec.png" alt="logo da FATEC Rubens Lara, Baixada Santista">
+            <nav>
+                <ul>
+                    <li><a href="https://fatecrl.edu.br/">Home</a></li>
+                    <li><a href="https://fatecrl.edu.br/institucional/historico">Institucional</a></li>
+                    <li><a href="https://fatecrl.edu.br/setores">Setores</a></li>
+                    <li><a href="https://fatecrl.edu.br/projetos">Projetos</a></li>
+                    <li><a href="https://fatecrl.edu.br/blog/noticias">Noticias</a></li>
+                    <li><a href="https://fatecrl.edu.br/contato">Contato</a></li>
+                </ul>
+            </nav>
+        <i id="menuTrigger" class="fa-solid fa-bars"></i>
+    </header>
+    <main>
+        <!-- <h2>Unidade Baixada Santista - Fatec Rubens Lara</h2> -->
+        <h2>Criação da Instituição</h2>
+        <p>
+            O Deputado Rubens Lara intermediou, junto ao governo de estado, a vinda da Faculdade de Tecnologia para a
+            Baixada Santista por quase dez anos.
+            Por meio do Decreto número 26.150, de 31 de outubro de 1986, do governador Franco Montoro, a Faculdade de
+            Tecnologia da Baixada Santista foi criada, constituindo Unidade de Ensino do Centro Estadual de Educação
+            Tecnológica Paula Souza.
+        </p>
+        <h2 class="margin">Projetos</h2>
+        <section id="projetos">
+            <div>
+                <a href="https://fatecrl.edu.br/projetos/1">
+                    <!-- <img src="imagens/bi.svg" alt=""> -->
+                    <h3>Bussiness Inteligence (BI)</h3>
+                    <p>
+                        Análise e entendimento da situação acadêmica e do mercado de trabalho através de um sistema de
+                        captura de dados.
+                    </p>
+                </a>
+            </div>
+            <div>
+                <a href="https://fatecrl.edu.br/projetos/7">
+                    <!-- <img src="imagens/iniciacao-cientifica.svg" alt=""> -->
+                    <h3>Iniciação Científica</h3>
+                    <p>
+                        Aperfeiçoamento da formação de estudantes de graduação e desenvolvimento do pensamento
+                        científico, da pesquisa tecnológica e da solução de problemas.
+                    </p>
+                </a>
+            </div>
+            <div>
+                <a href="https://fatecrl.edu.br/projetos/6">
+                    <!-- <img src="imagens/maratona.svg" alt=""> -->
+                    <h3>Maratona de Programação</h3>
+                    <p>
+                        Competição que visa estimular o pensamento lógico e os conhecimentos de programação através da
+                        resolução de exercícios.
+                    </p>
+                </a>
+            </div>
+        </section>
+    </main>
+    <aside class="decoration">
+        <h2>Cursos de Graduação</h2>
+        <ul>
+            <div>
+                <li>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <a href="https://fatecrl.edu.br/cursos/analise-e-desenvolvimento-de-sistemas">Análise e Desenvolvimento de Sistemas</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <a href="https://fatecrl.edu.br/cursos/ciencia-de-dados">Ciência de Dados</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <a href="https://fatecrl.edu.br/cursos/gestao-empresarial">Gestão Empresarial</a>
+                </li>
+            </div>
+           <div>
+                <li>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <a href="https://fatecrl.edu.br/cursos/gestao-portuaria">Gestão Pòrtuária</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <a href="https://fatecrl.edu.br/cursos/gestao-de-recursos-humanos">Gestão de Recursos Humanos</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <a href="https://fatecrl.edu.br/cursos/logistica">Logística</a>
+                </li>
+           </div>
+            <div>
+                <li>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <a href="https://fatecrl.edu.br/cursos/sistemas-para-internet">Sistemas para Internet</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <a href="https://fatecrl.edu.br/cursos/processos-gerenciais">Processos Gerenciais</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <a href="https://fatecrl.edu.br/cursos/logistica-ams">Logística AMS</a>
+                </li>
+            </div>
+        </ul>
+    </aside>
+    <footer>
+        <p>Direitos reservados à Fatec Rubens Lara</p>
+    </footer>
+    <script>
+        window.onload = function () {
+            const menuTrigger = document.getElementById("menuTrigger");
+            const menu = document.querySelector("header nav");
+            let isMenuVisible = false;
+    
+            menuTrigger.addEventListener("click", function () {
+                // if (isMenuVisible) {
+                //     menu.style.display = "none";
+                // } else {
+                //     menu.style.display = "flex";
+                // }
+                menu.style.display = isMenuVisible ? "none" : "flex";
+    
+                isMenuVisible = !isMenuVisible;
+            });
+        };
+    </script>
+    
+</body>
+
+</html>

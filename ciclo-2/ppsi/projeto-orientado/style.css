@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200&display=swap');
+
+/* Define as cores principais */
+:root {
+  --background-color: #18122B;
+  --main-color: #917FB3;
+  --secondary-color: #C147E9;
+  --border-color: #58287F;
+}
+
+/* Define o estilo global */
+* {
+  font-family: 'Barlow Condensed', sans-serif;
+  background-color: var(--background-color);
+  color: var(--main-color);
+}
+
+/* Estilos para o menu de navegação */
+#border {
+  border-bottom: 2px solid var(--border-color);
+  margin: 0 7px 0 7px;
+  padding-bottom: 15px;
+}
+
+#h1 {
+  font-size: 35px;
+  font-weight: bold;
+  margin: 7px 0 0 15px;
+}
+
+nav {
+  display: flex;
+  justify-content:space-between;
+}
+
+#head {
+  padding-right: 2%;
+  font-size: 120%;
+  font-weight: bold;
+}
+
+/* Estilo para cabeçalhos h2 */
+h2 {
+  text-align: center;
+}
+
+/* Estilo para caption */
+caption {
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 1.5%;
+}
+
+/* Estilo para parágrafos p, cabeçalhos h3 e label */
+h3, p, label {
+  font-size: 120%;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Estilo para o elemento com o id "content" */
+#content {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Estilo para imagens */
+img {
+  height: 50vh;
+  width: 25vw;
+}
+
+/* Estilos para tabelas */
+table {
+  width: 50%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 1%;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  text-align: center;
+}
+
+/* Estilo para o elemento com o id "t-content" */
+#t-content {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Estilos para links */
+a {
+  text-decoration: none;
+  margin-right: 12px;
+}
+
+#linkcolor {
+  color: #C147E9;
+  font-weight: bolder;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Estilos para disposição de elementos nas pags sobre os alunos */
+#position {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  width: 95%;
+  margin-top: 5%;
+}
+
+#position p {
+  margin: 0 3% 0 1.5%;
+}
+
+/* Estilos para formato de imagens */
+.imgformat {
+  clip-path: circle(46%);
+}
+
+/* Estilo para a lista, elementos ul e formulário */
+ul, form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1%;
+}
+
+/* Estilo para a lista */
+ul {
+  list-style-type: none;
+  width: 20%;
+}
+
+#list div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ul li img {
+  width: 80px;
+  height: auto;
+}
+
+#list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 1%;
+}
+
+.dimension {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dimension a {
+  margin: 0;
+}
+
+/* Estilos para formulários */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 35%;
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  border: none;
+}
+
+#form {
+  display: flex;
+  justify-content: center;
+  margin-top: 1%;
+}
+
+.backcolorForm {
+  background-color:#917FB3;
+  margin: 0 0 10px 0;
+  color: #fff;
+  font-size: medium;
+  resize: vertical;
+}
+
+#list form label, input {
+  display: flex;
+  justify-content: left;
+}
+
+.groupleft {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#button {
+  background-color:#917FB3;
+  color: #fff;
+  font-size: medium;
+  margin-top: 1%;
+}

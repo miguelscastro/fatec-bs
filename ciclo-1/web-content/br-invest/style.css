@@ -1,0 +1,397 @@
+/* Gerais */
+:root {
+    --main-color: #312e2e;
+    --banner-color: #fff;
+    --background1-color: #e7ecf1;
+    --background2-color: #22303b;
+    --border-color: #968d8dcb;
+    --headlink-color: #929daf;
+    --boxlink-color: #586c85;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+    max-width: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background1-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Menu <nav> */
+#nav {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 10%;
+    background-color: var(--background1-color);
+    z-index: 999;
+    color: var(--main-color);
+    border: 1px inset var(--border-color);
+}
+
+#nav img {
+    width: 80px;
+    height: auto;
+    margin: 1% 0 1% 10%;
+}
+
+#nav div {
+    font-size: 120%;
+    margin: 1.7% 0;
+}
+
+#nav-a {
+    font-size: 120%;
+    margin: 1.7% 10% 0 0;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+a:hover {
+    color: var(--headlink-color);
+}
+
+header a:not(:first-child) {
+    margin-left: 100px;
+}
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Cor do texto principal - main */
+
+#main {
+    color: var(--main-color);
+    font-size: 100%;
+}
+
+/* Texto - topo (imagem) */
+#banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(imagens/grafico1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    color: var(--banner-color);
+    margin: 0;
+}
+
+#banner h1 {
+    margin: 20% 10% 2% 10%;
+    font-size: 350%;
+    padding: 0 2%;
+}
+
+#banner p {
+    font-size: 150%;
+    margin: 0 10%;
+    padding: 0 2%;
+}
+
+#video {
+    margin: 5% auto;
+    background-color: var(--background2-color);
+    width: 1000px;
+    height: 550px;
+}
+
+#video iframe {
+    width: 100%;
+    height: 100%;
+}
+
+#video iframe:focus {
+    outline: none;
+}
+
+/* Conteúdo - pós #banner */
+#content-head {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2% 5%;
+}
+
+#content-head h1 {
+    margin: 1% 0;
+    font-size: 300%;
+    color: var(--main-color);
+}
+
+#content-head p {
+    font-size: 120%;   
+    padding: 0 15%;
+}
+
+.div {
+    display: flex;
+    justify-content: center;
+    margin: 1% 0;
+    font-size: 40px;
+    color: var(--main-color);
+    padding: 2% 20%;
+}
+
+/* <h1> */
+.h1-align {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 1% 0;
+    font-size: 250%;
+    color: var(--main-color);
+}
+
+/* "Como investir?" - display */
+#content-main {
+    margin: 2% 0 6% 0;
+    padding: 0 15%;
+    font-size: 110%;
+}
+
+#button-config {
+    display: flex;
+    margin: 2% 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#button-config button {
+    margin: 0.5% 2% 0 0;
+    border: none;
+    background-color: var(--background1-color);
+    color: var(--main-color);
+    font-size: 120%;
+    cursor: pointer;
+}
+
+#button-config button:hover {
+    color: var(--boxlink-color);
+}
+
+#button-config button.ativo {
+    color: var(--boxlink-color);
+    font-weight: bold;
+}
+
+.inner-padding {
+    padding: 0 0 1.5% 0;
+}
+
+/* Infográfico */
+#info-config {
+    display: flex;
+    justify-content: center;
+    background-color: var(--background2-color);
+    border-top: 1px solid var(--border-color);
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#info-config img {
+    width: 65%;
+    height: auto;
+    margin: 5% 0 3% 0;
+    background-color: #253542;
+    padding: 1% 0 2% 0;
+}
+
+/* Form. de contato */ 
+#form-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--background1-color);
+}
+
+#form-box h1 {
+    margin: 2% 0;
+    font-size: 250%;
+    color: var(--main-color);
+    padding: 0 20%;
+}
+  
+.backcolorForm {
+    background-color: var(--background2-color);
+    color: var(--banner-color);
+    font-size: medium;
+    resize: vertical;
+    margin-bottom: 4%;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    padding: 0 2%;
+    width: 50%;
+    /* margin: 2% 0; */
+    border: none;
+}
+
+#form textarea {
+    margin-bottom: 0;
+}
+ 
+#form p, #form input:last-child {
+    color: var(--main-color);
+    margin-bottom: 4%;
+}
+
+#form input {
+    border: none;
+    border-radius: 5px;
+    padding: 1%;
+}
+
+#form input::placeholder, #form textarea::placeholder {
+    padding: 5px 0 0 15px;
+    color: var(--banner-color);
+}
+  
+#button {
+    background-color: #3c4953;
+    color: var(--banner-color);
+    font-size: 95%;
+    font-weight: bold;
+    height: auto;
+    width: fit-content;
+    border: none;
+    padding: 1% 2%;
+    display: flex;
+    align-self: center;
+    margin-top: 1%;
+    border-radius: 5px;
+}
+
+/* Rodapé */
+#bottom-style {
+    background-color: var(--background1-color);
+    display: flex;
+    justify-content: flex-end;
+    /* border-top: 1px solid var(--border-color); */
+}
+
+#bottom-style button {
+    color: var(--banner-color);
+    background-color: #253542;
+    margin: 0 3% 0.5% 1%;
+    padding: 0.5% 1% 0 1%;
+    font-size: 150%;
+    border: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    /* Menu <nav> */
+    #nav img {
+        margin: 2% 0 2% 5%;
+    }
+  
+    #nav div {
+        font-size: 80%;
+        margin: 2% 0;
+    }
+  
+    #nav-a {
+        font-size: 80%;
+        margin: 2% 5% 0 0;
+    }
+  
+    header a:not(:first-child) {
+        margin-left: 30px;
+    }
+  
+    /* Texto - topo (imagem) */
+    #banner h1 {
+        margin: 30% 0 2% 0;
+        font-size: 200%;
+    }
+  
+    #banner p {
+        font-size: 120%;
+        margin: 0 5%;
+    }
+  
+    #video {
+        margin: 5% auto;
+        width: 90%;
+        height: auto;
+        border: 7px solid #1a1b3a;
+        border-radius: 20px;
+    }
+  
+    /* Conteúdo - pós #banner */
+    #content-head h1 {
+        margin: 2% 0;
+        font-size: 200%;
+        padding-top: 5%;
+    }
+  
+    .div {
+        font-size: 30px;
+        padding: 5% 10%;
+    }
+  
+    #content-head p {
+        font-size: 100%;
+        padding: 0 10%;
+    }
+  
+    /* <h1> */
+    .h1-align {
+        margin: 0 0 2% 0;
+        font-size: 200%;
+    }
+  
+    /* "Como investir?" - display */
+    #content-main {
+        margin: 2% 0 6% 0;
+        padding: 0 10%;
+        font-size: 90%;
+    }
+  
+    #button-config button {
+        margin: 0.5% 2% 0 0;
+        font-size: 100%;
+        cursor: pointer;
+    }
+  
+    /* Infográfico */
+    #info-config {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    #info-config img {
+        width: 65%;
+        height: auto;
+        margin: 5% 0 3% 0;
+    }
+  
+    /* Form. de contato */
+    #form {
+        width: 90%;
+        margin: 2% 5%;
+    }
+  
+    #form-box h1 {
+        font-size: 200%;
+    }
+  
+    #form p, #form input:not(:first-child) {
+        margin-bottom: 3%;
+    }
+}
