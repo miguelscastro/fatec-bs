@@ -1,6 +1,7 @@
 import { Response, Router } from "express";
 import { authentication, type AuthRequest } from "../authentication";
 import { Product } from "../../db/models/Product";
+import { connectToDatabase } from "../../db/connection";
 
 export const getProductById = Router();
 
@@ -9,6 +10,7 @@ getProductById.get(
   authentication,
   async (req: AuthRequest, res: Response) => {
     try {
+      await connectToDatabase();
       const product = await Product.findOne({
         _id: req.params.id,
         userId: req.userId,

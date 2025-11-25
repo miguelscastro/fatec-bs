@@ -1,6 +1,7 @@
 import { Response, Router } from "express";
 import { authentication, AuthRequest } from "../authentication";
 import { Product } from "../../db/models/Product";
+import { connectToDatabase } from "../../db/connection";
 
 export const deleteProduct = Router();
 
@@ -9,6 +10,7 @@ deleteProduct.delete(
   authentication,
   async (req: AuthRequest, res: Response) => {
     try {
+      await connectToDatabase();
       const deleted = await Product.findOneAndDelete({
         _id: req.params.id,
         userId: req.userId,

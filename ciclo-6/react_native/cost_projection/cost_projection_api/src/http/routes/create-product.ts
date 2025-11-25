@@ -1,6 +1,7 @@
 import { Response, Router } from "express";
 import { authentication, type AuthRequest } from "../authentication";
 import { Product } from "../../db/models/Product";
+import { connectToDatabase } from "../../db/connection";
 
 export const createProduct = Router();
 
@@ -9,10 +10,13 @@ createProduct.post(
   authentication,
   async (req: AuthRequest, res: Response) => {
     try {
+      await connectToDatabase();
       const { name, salePrice = 0, ingredients = [] } = req.body ?? {};
 
       if (!name || typeof name !== "string") {
-        res.status(400).json({ error: "`name` is required and must be a string" });
+        res
+          .status(400)
+          .json({ error: "`name` is required and must be a string" });
         return;
       }
 

@@ -1,6 +1,7 @@
 import { Router, Response } from "express";
 import { authentication, type AuthRequest } from "../authentication";
 import { Product } from "../../db/models/Product";
+import { connectToDatabase } from "../../db/connection";
 
 export const updateProduct = Router();
 
@@ -9,6 +10,7 @@ updateProduct.put(
   authentication,
   async (req: AuthRequest, res: Response) => {
     try {
+      await connectToDatabase();
       const { name, salePrice, ingredients } = req.body;
 
       const updatedProduct = await Product.findOneAndUpdate(
