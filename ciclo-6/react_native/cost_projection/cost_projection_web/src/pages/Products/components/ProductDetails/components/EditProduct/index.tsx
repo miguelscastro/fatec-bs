@@ -1,31 +1,21 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  Alert,
-  Keyboard,
-  StyleSheet,
-} from "react-native";
+import { View, Text, ScrollView, Alert, Keyboard } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import {
-  useAppTheme,
-  type ThemeColors,
-} from "../../../../../../hooks/useAppTheme";
+import { useAppTheme } from "../../../../../../hooks/useAppTheme";
 import { updateProduct } from "../../../../../../api/update-product";
 import { Header } from "../../../../../../components/Header";
 import { InputField } from "../../../../../../components/InputField";
 import { Execute } from "../../../../../../components/Execute";
+import { styles } from "./styles";
 
 export function EditProduct() {
   const navigation = useNavigation<any>();
   const route = useRoute<any>();
 
-  // Recebe o objeto completo do produto vindo da tela anterior
   const { productToEdit } = route.params || {};
 
   const { colors } = useAppTheme();
-  const pageStyles = createStyles(colors);
+  const pageStyles = styles(colors);
 
   // Inicializa os estados com os valores atuais do produto
   const [name, setName] = useState(productToEdit?.name || "");
@@ -113,32 +103,3 @@ export function EditProduct() {
     </ScrollView>
   );
 }
-
-// --- ESTILOS ---
-
-export const createStyles = (colors: ThemeColors) =>
-  StyleSheet.create({
-    pageContainer: {
-      flex: 1,
-      padding: 16,
-      backgroundColor: colors.background,
-      paddingTop: 50, // Ajuste seguro para status bar se necessário
-    },
-    formContainer: {
-      flex: 1,
-      padding: 16,
-    },
-    infoBox: {
-      backgroundColor: colors["base-card"],
-      padding: 12,
-      borderRadius: 8,
-      marginVertical: 16,
-      borderLeftWidth: 4,
-      borderLeftColor: colors.brown,
-    },
-    infoText: {
-      color: colors.brown,
-      fontSize: 14,
-      fontStyle: "italic",
-    },
-  });

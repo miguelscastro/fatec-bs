@@ -1,13 +1,12 @@
 import { StyleSheet } from "react-native";
 import { ThemeColors } from "../../hooks/useAppTheme";
 
-export const createStyles = (colors: ThemeColors) =>
+export const styles = (colors: ThemeColors) =>
   StyleSheet.create({
     splashContainer: {
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
-      // Usa a cor primária do tema (Marrom no Light, Bege no Dark)
       backgroundColor: colors.primary,
     },
     backgroundImage: {
@@ -21,7 +20,6 @@ export const createStyles = (colors: ThemeColors) =>
     splashTitle: {
       fontSize: 24,
       fontWeight: "bold",
-      // Garante contraste (Branco no Light, Preto no Dark)
       color: colors.onPrimary,
     },
   });

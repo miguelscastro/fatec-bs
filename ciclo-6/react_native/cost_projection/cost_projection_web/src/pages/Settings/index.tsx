@@ -1,21 +1,14 @@
 import React from "react";
-import {
-  View,
-  Text,
-  Switch,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
-import { useAppTheme, ThemeColors } from "../../hooks/useAppTheme";
+import { View, Text, Switch, TouchableOpacity, ScrollView } from "react-native";
+import { useAppTheme } from "../../hooks/useAppTheme";
 import { useAppSettings } from "../../hooks/useAppSettings";
-// Ícones
 import { ChevronRight, Moon } from "lucide-react-native";
+import { styles } from "./styles";
 
 export function Settings() {
   const { colors } = useAppTheme();
   const { theme, setTheme } = useAppSettings();
-  const pageStyles = createStyles(colors);
+  const pageStyles = styles(colors);
 
   // Componente interno para itens de lista
   const SettingsItem = ({
@@ -84,78 +77,3 @@ export function Settings() {
     </View>
   );
 }
-
-const createStyles = (colors: ThemeColors) =>
-  StyleSheet.create({
-    pageContainer: {
-      flex: 1,
-      backgroundColor: colors.background,
-      paddingTop: 50, // Padrão seguro igual às outras telas
-    },
-    header: {
-      paddingHorizontal: 24,
-      marginBottom: 20,
-    },
-    headerTitle: {
-      fontSize: 32,
-      fontWeight: "bold",
-      color: colors["brown-dark"],
-    },
-    scrollContent: {
-      paddingHorizontal: 24,
-      paddingBottom: 40,
-    },
-    sectionTitle: {
-      fontSize: 12,
-      fontWeight: "bold",
-      color: colors.brown,
-      marginBottom: 8,
-      marginLeft: 4,
-      marginTop: 16,
-      textTransform: "uppercase",
-      letterSpacing: 1,
-    },
-    sectionBox: {
-      backgroundColor: colors.white,
-      borderRadius: 12,
-      overflow: "hidden",
-      borderWidth: 1,
-      borderColor: colors["base-card"],
-    },
-    itemContainer: {
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "space-between",
-      paddingVertical: 16,
-      paddingHorizontal: 16,
-    },
-    itemLeft: {
-      flexDirection: "row",
-      alignItems: "center",
-    },
-    iconBox: {
-      width: 32,
-      height: 32,
-      borderRadius: 8,
-      backgroundColor: colors["base-card"], // Fundo suave pro ícone
-      justifyContent: "center",
-      alignItems: "center",
-      marginRight: 12,
-    },
-    itemLabel: {
-      fontSize: 16,
-      color: colors["base-text"],
-      fontWeight: "500",
-    },
-    itemRight: {
-      flexDirection: "row",
-      alignItems: "center",
-    },
-    versionText: {
-      textAlign: "center",
-      color: colors.brown,
-      fontSize: 12,
-      marginTop: 40,
-      opacity: 0.6,
-    },
-  });

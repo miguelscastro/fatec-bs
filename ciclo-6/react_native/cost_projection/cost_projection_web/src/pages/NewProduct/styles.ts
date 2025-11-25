@@ -1,35 +1,31 @@
 import { StyleSheet } from "react-native";
 import { ThemeColors } from "../../hooks/useAppTheme";
 
-export const createStyles = (colors: ThemeColors) =>
+export const styles = (colors: ThemeColors) =>
   StyleSheet.create({
     pageContainer: {
       flex: 1,
       backgroundColor: colors.background,
+      paddingTop: 50,
     },
     scrollContent: {
       flexGrow: 1,
-      padding: 24, // Padding lateral maior para ficar elegante
-    },
-    headerContainer: {
-      marginBottom: 32,
-      marginTop: 20,
-    },
-    title: {
-      fontSize: 24,
-      fontWeight: "bold",
-      color: colors["brown-dark"],
-      marginBottom: 8,
-    },
-    subtitle: {
-      fontSize: 16,
-      color: colors["base-text"],
-      opacity: 0.8,
+      paddingHorizontal: 24,
+      paddingBottom: 40,
     },
     formContainer: {
       flex: 1,
+      marginTop: 20,
+    },
+    helperText: {
+      fontSize: 14,
+      color: colors.brown,
+      fontStyle: "italic",
+      marginTop: 8,
+      marginBottom: 24,
+      lineHeight: 20,
     },
     buttonContainer: {
-      marginTop: 24,
+      marginTop: 8,
     },
   });

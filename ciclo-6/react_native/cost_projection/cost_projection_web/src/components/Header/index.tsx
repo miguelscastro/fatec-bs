@@ -1,13 +1,8 @@
 import React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Platform,
-} from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { useAppTheme, ThemeColors } from "../../hooks/useAppTheme";
+import { useAppTheme } from "../../hooks/useAppTheme";
+import { styles } from "./styles";
 
 interface HeaderProps {
   title: string;
@@ -18,7 +13,7 @@ interface HeaderProps {
 export function Header({ title, onBack, showBack = true }: HeaderProps) {
   const navigation = useNavigation();
   const { colors } = useAppTheme();
-  const styles = createStyles(colors);
+  const componentStyles = styles(colors);
 
   // Se não passar onBack, tenta usar o goBack do navigation
   const handleBack = () => {
@@ -33,59 +28,21 @@ export function Header({ title, onBack, showBack = true }: HeaderProps) {
   const shouldShowBack = showBack && (onBack || navigation.canGoBack());
 
   return (
-    <View style={styles.headerContainer}>
+    <View style={componentStyles.headerContainer}>
       {shouldShowBack && (
         <TouchableOpacity
           onPress={handleBack}
-          style={styles.backButton}
+          style={componentStyles.backButton}
           hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }}
           activeOpacity={0.7}
         >
-          {/* Se tiver biblioteca de ícones (Lucide/Feather), substitua o Text abaixo pelo Icon */}
-          <Text style={styles.backButtonText}>←</Text>
+          <Text style={componentStyles.backButtonText}>←</Text>
         </TouchableOpacity>
       )}
 
-      <Text style={styles.headerTitle} numberOfLines={1}>
+      <Text style={componentStyles.headerTitle} numberOfLines={1}>
         {title}
       </Text>
     </View>
   );
 }
-
-// --- ESTILOS ---
-
-const createStyles = (colors: ThemeColors) =>
-  StyleSheet.create({
-    headerContainer: {
-      width: "100%",
-      height: 56, // Altura padrão de header mobile
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "center", // Centraliza o título
-      marginBottom: 16,
-      marginTop: Platform.OS === "android" ? 16 : 0, // Pequeno ajuste para Android
-      backgroundColor: "transparent",
-    },
-    backButton: {
-      position: "absolute",
-      left: 0,
-      padding: 8,
-      zIndex: 10, // Garante que o botão fique sobre o título se necessário
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    backButtonText: {
-      fontSize: 28, // Seta maior
-      fontWeight: "300", // Mais fina e elegante
-      color: colors["brown-dark"], // Cor forte da sua paleta
-      marginTop: -4, // Ajuste fino para alinhar verticalmente a seta
-    },
-    headerTitle: {
-      fontSize: 20,
-      fontWeight: "bold",
-      color: colors["brown-dark"], // Cor forte da sua paleta
-      textAlign: "center",
-      maxWidth: "70%", // Impede que o texto invada a área dos botões
-    },
-  });

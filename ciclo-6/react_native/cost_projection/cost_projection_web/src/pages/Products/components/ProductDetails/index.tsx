@@ -4,7 +4,6 @@ import {
   Text,
   ScrollView,
   Alert,
-  StyleSheet,
   ActivityIndicator,
   RefreshControl,
   Pressable,
@@ -15,7 +14,7 @@ import {
   useFocusEffect,
 } from "@react-navigation/native";
 import { Pencil, Trash2 } from "lucide-react-native";
-import { useAppTheme, type ThemeColors } from "../../../../hooks/useAppTheme";
+import { useAppTheme } from "../../../../hooks/useAppTheme";
 import { useAppSettings } from "../../../../hooks/useAppSettings";
 import type { Product } from "../../../../api/get-products";
 import { getProductById } from "../../../../api/get-product-by-id";
@@ -24,6 +23,7 @@ import { updateProduct } from "../../../../api/update-product";
 import { Header } from "../../../../components/Header";
 import { Execute } from "../../../../components/Execute";
 import { CardItem } from "../../../../components/CardItem";
+import { styles } from "./styles";
 
 export function ProductDetails() {
   const navigation = useNavigation<any>();
@@ -32,7 +32,7 @@ export function ProductDetails() {
 
   const { colors } = useAppTheme();
   const { currency } = useAppSettings();
-  const pageStyles = createStyles(colors);
+  const pageStyles = styles(colors);
 
   const [item, setItem] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
@@ -286,156 +286,3 @@ export function ProductDetails() {
     </View>
   );
 }
-
-// --- ESTILOS PADRONIZADOS COM A HOME ---
-
-const createStyles = (colors: ThemeColors) =>
-  StyleSheet.create({
-    pageContainer: {
-      flex: 1,
-      backgroundColor: colors.background,
-      // PADRÃO DE SEGURANÇA: 50px no topo
-      paddingTop: 50,
-    },
-    headerWrapper: {
-      position: "relative",
-      alignItems: "center",
-      zIndex: 10,
-      paddingHorizontal: 24, // Alinhado com a Home
-    },
-    headerActions: {
-      position: "absolute",
-      right: 24, // Alinhado com a Home
-      top: 0,
-      bottom: 0,
-      flexDirection: "row",
-      alignItems: "center",
-      zIndex: 20,
-    },
-    actionButton: {
-      padding: 4,
-    },
-    centerLoading: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    scrollContent: {
-      paddingHorizontal: 24, // Alinhado com a Home
-      paddingTop: 10,
-      // Espaço grande no final para o conteúdo não ficar atrás do footer
-      paddingBottom: 140,
-    },
-    summaryCard: {
-      backgroundColor: colors.white,
-      borderRadius: 16, // Mais arredondado (estilo Home)
-      paddingTop: 40,
-      paddingBottom: 24,
-      paddingHorizontal: 24,
-      marginBottom: 32,
-      shadowColor: colors["brown-dark"],
-      shadowOffset: { width: 0, height: 4 },
-      shadowOpacity: 0.1, // Sombra mais suave
-      shadowRadius: 12,
-      elevation: 4,
-      borderWidth: 1,
-      borderColor: colors["base-card"],
-      width: "100%",
-      position: "relative",
-      overflow: "hidden",
-    },
-    summaryRow: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
-      width: "100%",
-    },
-    summaryLabel: {
-      fontSize: 12,
-      color: colors.brown,
-      textTransform: "uppercase",
-      marginBottom: 4,
-      fontWeight: "bold",
-      letterSpacing: 0.5,
-    },
-    salePriceValue: {
-      fontSize: 28,
-      fontWeight: "bold",
-      color: colors["brown-dark"],
-    },
-    profitValue: {
-      fontSize: 28,
-      fontWeight: "bold",
-    },
-    divider: {
-      height: 1,
-      backgroundColor: colors["base-card"],
-      marginVertical: 20,
-    },
-    costLabel: {
-      fontSize: 14,
-      color: colors["base-text"],
-      opacity: 0.8,
-    },
-    costValue: {
-      fontSize: 16,
-      fontWeight: "bold",
-      color: colors["base-text"],
-    },
-    marginBadge: {
-      position: "absolute",
-      top: 0,
-      right: 0,
-      borderBottomLeftRadius: 16, // Mais arredondado
-      paddingHorizontal: 16,
-      paddingVertical: 8,
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    marginText: {
-      color: colors.white,
-      fontSize: 12,
-      fontWeight: "bold",
-    },
-    sectionHeader: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
-      marginBottom: 16,
-    },
-    sectionTitle: {
-      fontSize: 18,
-      fontWeight: "bold",
-      color: colors["brown-dark"],
-    },
-    emptyContainer: {
-      padding: 40,
-      alignItems: "center",
-      justifyContent: "center",
-      borderStyle: "dashed",
-      borderWidth: 1,
-      borderColor: colors.brown,
-      borderRadius: 12,
-      backgroundColor: colors.white, // Fundo branco fica mais limpo
-      marginTop: 20,
-    },
-    emptyText: {
-      textAlign: "center",
-      color: colors.brown,
-      fontSize: 14,
-      lineHeight: 20,
-    },
-    footer: {
-      position: "absolute",
-      bottom: 0,
-      left: 0,
-      right: 0,
-      paddingHorizontal: 24,
-      // PADRÃO DE SEGURANÇA: 40px na base
-      paddingBottom: 40,
-      paddingTop: 16,
-      backgroundColor: colors.background,
-      borderTopWidth: 1,
-      borderTopColor: colors["base-card"],
-    },
-  });

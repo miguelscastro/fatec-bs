@@ -1,13 +1,8 @@
 import React from "react";
-import {
-  View,
-  Text,
-  Pressable,
-  GestureResponderEvent,
-  StyleSheet,
-} from "react-native";
+import { View, Text, Pressable, GestureResponderEvent } from "react-native";
 
-import { useAppTheme, ThemeColors } from "../../hooks/useAppTheme";
+import { useAppTheme } from "../../hooks/useAppTheme";
+import { styles } from "./styles";
 
 export interface ItemData {
   id?: string;
@@ -27,7 +22,7 @@ interface CardItemProps {
 
 export function CardItem({ item, onDelete, onPress, currency }: CardItemProps) {
   const { colors } = useAppTheme();
-  const styles = createStyles(colors);
+  const componentStyles = styles(colors);
 
   const quantity = item.quantity || 0;
   const unitCost = item.cost || 0;
@@ -45,16 +40,16 @@ export function CardItem({ item, onDelete, onPress, currency }: CardItemProps) {
   const Container = onPress ? Pressable : View;
 
   return (
-    <Container style={styles.cardContainer} onPress={onPress}>
+    <Container style={componentStyles.cardContainer} onPress={onPress}>
       {/* Conteúdo principal do card em linha */}
-      <View style={styles.contentRow}>
+      <View style={componentStyles.contentRow}>
         {/* Lado Esquerdo: Textos */}
-        <View style={styles.leftContent}>
-          <Text style={styles.itemName} numberOfLines={1}>
+        <View style={componentStyles.leftContent}>
+          <Text style={componentStyles.itemName} numberOfLines={1}>
             {item.name || item.title}
           </Text>
 
-          <Text style={styles.itemDetails}>
+          <Text style={componentStyles.itemDetails}>
             {item.quantity !== undefined ? (
               // Layout de Ingrediente
               <>
@@ -71,13 +66,13 @@ export function CardItem({ item, onDelete, onPress, currency }: CardItemProps) {
 
         {/* Lado Direito: Apenas o botão de deletar agora (se existir) */}
         {onDelete && (
-          <View style={styles.rightContent}>
+          <View style={componentStyles.rightContent}>
             <Pressable
               onPress={onDelete}
-              style={styles.deleteButton}
+              style={componentStyles.deleteButton}
               hitSlop={15}
             >
-              <Text style={styles.deleteButtonText}>X</Text>
+              <Text style={componentStyles.deleteButtonText}>X</Text>
             </Pressable>
           </View>
         )}
@@ -85,8 +80,13 @@ export function CardItem({ item, onDelete, onPress, currency }: CardItemProps) {
 
       {/* O MARCADOR DE MARGEM (Posicionado Absolutamente) */}
       {hasMargin && (
-        <View style={[styles.marginMarker, { backgroundColor: markerColor }]}>
-          <Text style={styles.marginText}>
+        <View
+          style={[
+            componentStyles.marginMarker,
+            { backgroundColor: markerColor },
+          ]}
+        >
+          <Text style={componentStyles.marginText}>
             {margin > 0 ? "+" : ""}
             {margin.toFixed(0)}%
           </Text>
@@ -95,81 +95,3 @@ export function CardItem({ item, onDelete, onPress, currency }: CardItemProps) {
     </Container>
   );
 }
-
-// --- ESTILOS ATUALIZADOS (Estilo Home) ---
-
-const createStyles = (colors: ThemeColors) =>
-  StyleSheet.create({
-    cardContainer: {
-      position: "relative",
-      backgroundColor: colors.white, // Mudado de base-card para white (Estilo Home)
-      paddingTop: 24,
-      paddingBottom: 16,
-      paddingHorizontal: 16,
-      borderRadius: 12,
-      // Removemos marginHorizontal pois o container pai já tem padding
-      // marginHorizontal: 16,
-      marginBottom: 0, // Controlado pelo pai
-
-      // Sombra e Borda estilo Home
-      borderWidth: 1,
-      borderColor: colors["base-card"],
-      shadowColor: "#000",
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.05,
-      shadowRadius: 4,
-      elevation: 2,
-      overflow: "hidden",
-    },
-    contentRow: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
-    },
-    leftContent: {
-      flex: 1,
-      paddingRight: 8,
-    },
-    rightContent: {
-      marginLeft: 8,
-    },
-    itemName: {
-      fontSize: 16,
-      fontWeight: "bold",
-      color: colors["base-text"],
-      marginBottom: 4,
-    },
-    itemDetails: {
-      fontSize: 14,
-      color: colors.brown,
-      lineHeight: 20,
-    },
-    marginMarker: {
-      position: "absolute",
-      top: 0,
-      right: 0,
-      borderBottomLeftRadius: 12,
-      paddingHorizontal: 10,
-      paddingVertical: 6,
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    marginText: {
-      color: colors.white,
-      fontSize: 12,
-      fontWeight: "bold",
-    },
-    deleteButton: {
-      backgroundColor: "#E53935",
-      width: 32,
-      height: 32,
-      borderRadius: 16,
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    deleteButtonText: {
-      color: "white",
-      fontWeight: "bold",
-      fontSize: 14,
-    },
-  });

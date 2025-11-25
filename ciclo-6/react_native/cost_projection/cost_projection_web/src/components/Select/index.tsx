@@ -1,8 +1,7 @@
 import React from "react";
-// É necessário instalar: npx expo install @react-native-picker/picker
 import { Picker } from "@react-native-picker/picker";
 
-import { createStyles } from "./styles";
+import { styles } from "./styles";
 import { useAppTheme } from "../../hooks/useAppTheme";
 
 interface PickerItemData {
@@ -23,21 +22,18 @@ export function Select({
   selectedValue,
   onValueChange,
 }: SelectProps) {
-  // 1. Pegamos as cores do hook
   const { colors, isDark } = useAppTheme();
-  const styles = createStyles(colors);
+  const componentStyles = styles(colors);
 
   return (
     <Picker
-      style={styles.picker}
+      style={componentStyles.picker}
       selectedValue={selectedValue}
       onValueChange={onValueChange}
-      // Propriedades para garantir contraste no tema escuro:
-      dropdownIconColor={colors["base-text"]} // Seta do dropdown (Android)
-      itemStyle={{ color: colors["base-text"] }} // Cor dos itens (iOS)
-      mode="dropdown" // Opcional: visual de lista ou diálogo
+      dropdownIconColor={colors["base-text"]}
+      itemStyle={{ color: colors["base-text"] }}
+      mode="dropdown"
     >
-      {/* Item placeholder desabilitado */}
       <Picker.Item
         label="Selecione..."
         value=""
@@ -50,7 +46,6 @@ export function Select({
           key={index}
           label={item.label}
           value={item.value}
-          // Garante a cor correta de cada item na lista
           color={colors["base-text"]}
         />
       ))}

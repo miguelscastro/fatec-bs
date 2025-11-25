@@ -1,12 +1,7 @@
 import React from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-  TextInputProps,
-} from "react-native";
+import { View, Text, TextInput, TextInputProps } from "react-native";
 import { useAppTheme } from "../../hooks/useAppTheme";
+import { styles } from "./styles";
 
 interface InputFieldProps extends TextInputProps {
   label: string;
@@ -15,21 +10,22 @@ interface InputFieldProps extends TextInputProps {
 
 export function InputField({ label, error, style, ...props }: InputFieldProps) {
   const { colors } = useAppTheme();
+  const componentStyles = styles(colors);
 
   return (
     <View
       style={[
-        styles.container,
+        componentStyles.container,
         { backgroundColor: colors["base-card"] },
         style,
       ]}
     >
-      <Text style={[styles.label, { color: colors["base-text"] }]}>
+      <Text style={[componentStyles.label, { color: colors["base-text"] }]}>
         {label}
       </Text>
       <TextInput
         style={[
-          styles.input,
+          componentStyles.input,
           {
             color: colors["base-text"],
             borderBottomColor: colors["brown-dark"],
@@ -38,36 +34,7 @@ export function InputField({ label, error, style, ...props }: InputFieldProps) {
         placeholderTextColor={colors.brown}
         {...props}
       />
-      {error && <Text style={styles.errorText}>{error}</Text>}
+      {error && <Text style={componentStyles.errorText}>{error}</Text>}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 12,
-    borderRadius: 6,
-    marginBottom: 16,
-    // Sombra leve para imitar o box-shadow do web
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 3.84,
-    elevation: 2,
-  },
-  label: {
-    fontSize: 12,
-    marginBottom: 4,
-    fontFamily: "Roboto", // Se tiver a fonte
-  },
-  input: {
-    fontSize: 16,
-    paddingVertical: 4,
-    borderBottomWidth: 1,
-  },
-  errorText: {
-    color: "#ff4d4d",
-    fontSize: 12,
-    marginTop: 4,
-  },
-});

@@ -8,6 +8,7 @@ import {
   Calculator,
   List,
   Settings as SettingsIcon,
+  Pin,
 } from "lucide-react-native";
 
 // Hook de Tema
@@ -59,10 +60,8 @@ function AppTabs() {
         name="NewProduct"
         component={NewProduct}
         options={{
-          tabBarLabel: "Calcular",
-          tabBarIcon: ({ color, size }) => (
-            <Calculator color={color} size={size} />
-          ),
+          tabBarLabel: "Adicionar",
+          tabBarIcon: ({ color, size }) => <Pin color={color} size={size} />,
         }}
       />
 

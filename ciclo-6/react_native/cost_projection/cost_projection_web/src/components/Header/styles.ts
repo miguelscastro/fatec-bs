@@ -1,29 +1,37 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { ThemeColors } from "../../hooks/useAppTheme";
 
-export const createStyles = (colors: ThemeColors) =>
+export const styles = (colors: ThemeColors) =>
   StyleSheet.create({
     headerContainer: {
+      width: "100%",
+      height: 56,
       flexDirection: "row",
       alignItems: "center",
-      marginBottom: 20,
-      height: 50,
+      justifyContent: "center",
+      marginBottom: 16,
+      marginTop: Platform.OS === "android" ? 16 : 0,
+      backgroundColor: "transparent",
     },
     backButton: {
       position: "absolute",
-      left: 0, // Ajustei para 0 para alinhar melhor com a borda
-      padding: 10,
-      zIndex: 1,
+      left: 0,
+      padding: 8,
+      zIndex: 10,
+      justifyContent: "center",
+      alignItems: "center",
     },
     backButtonText: {
-      fontSize: 24,
-      color: colors["base-text"], // Cor dinâmica vinda do hook
+      fontSize: 28,
+      fontWeight: "300",
+      color: colors["brown-dark"],
+      marginTop: -4,
     },
     headerTitle: {
-      flex: 1,
-      textAlign: "center",
-      fontSize: 22,
+      fontSize: 20,
       fontWeight: "bold",
-      color: colors["base-text"], // Cor dinâmica vinda do hook
+      color: colors["brown-dark"],
+      textAlign: "center",
+      maxWidth: "70%",
     },
   });

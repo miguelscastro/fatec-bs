@@ -1,25 +1,23 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  Alert,
-  Keyboard,
-  Platform,
-  StatusBar,
-} from "react-native";
+import { View, Text, ScrollView, Alert, Keyboard } from "react-native";
 import Slider from "@react-native-community/slider";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { useAppTheme } from "../../../../../../hooks/useAppTheme";
+import { getProductById } from "../../../../../../api/get-product-by-id";
+import { updateProduct } from "../../../../../../api/update-product";
+import { Header } from "../../../../../../components/Header";
+import { InputField } from "../../../../../../components/InputField";
+import { Execute } from "../../../../../../components/Execute";
+import { styles } from "./styles";
 
 export function EditProductItem() {
   const navigation = useNavigation<any>();
   const route = useRoute<any>();
 
-  // Esperamos receber o ID do produto pai e o objeto do ingrediente a ser editado
   const { productId, ingredient } = route.params || {};
 
   const { colors } = useAppTheme();
-  const pageStyles = createStyles(colors);
+  const pageStyles = styles(colors);
 
   // Inicializa com os dados do ingrediente recebido
   const [name, setName] = useState(ingredient?.name || "");
@@ -141,58 +139,3 @@ export function EditProductItem() {
     </ScrollView>
   );
 }
-
-// --- ESTILOS (Idênticos ao NewProductItem para consistência) ---
-
-import { StyleSheet } from "react-native";
-import {
-  useAppTheme,
-  type ThemeColors,
-} from "../../../../../../hooks/useAppTheme";
-import { getProductById } from "../../../../../../api/get-product-by-id";
-import { updateProduct } from "../../../../../../api/update-product";
-import { Header } from "../../../../../../components/Header";
-import { InputField } from "../../../../../../components/InputField";
-import { Execute } from "../../../../../../components/Execute";
-
-export const createStyles = (colors: ThemeColors) =>
-  StyleSheet.create({
-    pageContainer: {
-      flex: 1,
-      backgroundColor: colors.background,
-      paddingTop:
-        Platform.OS === "android" ? (StatusBar.currentHeight || 24) + 10 : 50,
-    },
-    formContainer: {
-      flex: 1,
-      padding: 16,
-    },
-    sliderWrapper: {
-      marginBottom: 20,
-      backgroundColor: colors.white,
-      paddingVertical: 8,
-    },
-    labelRow: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
-      marginBottom: 8,
-    },
-    label: {
-      fontSize: 14,
-      fontWeight: "bold",
-      color: colors["brown-dark"],
-      textTransform: "uppercase",
-    },
-    valueText: {
-      fontSize: 16,
-      fontWeight: "bold",
-      color: colors["brown-dark"],
-    },
-    hintText: {
-      fontSize: 12,
-      color: colors.brown,
-      textAlign: "center",
-      marginTop: -4,
-    },
-  });

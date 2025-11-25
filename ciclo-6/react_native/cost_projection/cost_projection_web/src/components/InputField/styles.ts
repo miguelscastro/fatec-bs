@@ -1,29 +1,30 @@
 import { StyleSheet } from "react-native";
 import { ThemeColors } from "../../hooks/useAppTheme";
 
-export const createStyles = (colors: ThemeColors) =>
+export const styles = (colors: ThemeColors) =>
   StyleSheet.create({
-    inputContainer: {
-      marginBottom: 20,
+    container: {
+      padding: 12,
+      borderRadius: 6,
+      marginBottom: 16,
+      shadowColor: "#000",
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.05,
+      shadowRadius: 3.84,
+      elevation: 2,
     },
     label: {
-      fontSize: 16,
-      marginBottom: 8,
-      fontWeight: "600", // Adicionei um peso para destacar o label
-      color: colors["base-text"],
+      fontSize: 12,
+      marginBottom: 4,
     },
     input: {
-      backgroundColor: colors.surface,
-      padding: 15,
-      borderRadius: 8,
       fontSize: 16,
-      color: colors["base-text"],
-      borderWidth: 1,
-      borderColor: colors.border || "#ddd",
+      paddingVertical: 4,
+      borderBottomWidth: 1,
     },
-    // Estilo opcional para quando estiver desabilitado (loading)
-    disabledInput: {
-      opacity: 0.6,
-      backgroundColor: colors.background,
+    errorText: {
+      color: "#ff4d4d",
+      fontSize: 12,
+      marginTop: 4,
     },
   });

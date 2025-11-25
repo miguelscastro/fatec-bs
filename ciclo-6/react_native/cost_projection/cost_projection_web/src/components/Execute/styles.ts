@@ -1,18 +1,21 @@
 import { StyleSheet } from "react-native";
-import { ThemeColors } from "../../hooks/useAppTheme";
+import { ThemeColors, useAppTheme } from "../../hooks/useAppTheme";
 
-export const createStyles = (colors: ThemeColors) =>
+const createStyles = (colors: ThemeColors) =>
   StyleSheet.create({
     button: {
-      backgroundColor: colors.primary, // Usa a cor primária do tema (Marrom/Bege)
-      padding: 15,
-      borderRadius: 8,
+      paddingVertical: 12,
+      paddingHorizontal: 24,
+      borderRadius: 6,
       alignItems: "center",
-      marginTop: 10,
+      justifyContent: "center",
+      width: "100%",
     },
-    buttonText: {
-      color: colors.onPrimary, // Texto sobre a cor primária (Branco/Preto)
-      fontSize: 18,
+    text: {
+      fontSize: 14,
       fontWeight: "bold",
+      textTransform: "uppercase",
     },
   });
+
+export const styles = (colors: ThemeColors) => createStyles(colors);

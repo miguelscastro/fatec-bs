@@ -2,24 +2,24 @@ import React, { useState, useCallback } from "react";
 import {
   View,
   Text,
-  StyleSheet,
   ActivityIndicator,
   ScrollView,
   TouchableOpacity,
 } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
-import { PackageOpen } from "lucide-react-native"; // Importando o ícone
+import { PackageOpen } from "lucide-react-native";
 
-import { useAppTheme, ThemeColors } from "../../hooks/useAppTheme";
+import { useAppTheme } from "../../hooks/useAppTheme";
 import { Execute } from "../../components/Execute";
 import { getProducts, Product } from "../../api/get-products";
 import { useAppSettings } from "../../hooks/useAppSettings";
+import { styles } from "./styles";
 
 export function Home() {
   const navigation = useNavigation<any>();
   const { colors } = useAppTheme();
   const { currency } = useAppSettings();
-  const pageStyles = createStyles(colors);
+  const pageStyles = styles(colors);
 
   const [metrics, setMetrics] = useState({
     totalProfit: 0,
@@ -95,8 +95,7 @@ export function Home() {
             <PackageOpen size={64} color={colors.brown} />
             <Text style={pageStyles.emptyTitle}>Nada por aqui ainda</Text>
             <Text style={pageStyles.emptyText}>
-              Cadastre seu primeiro produto clicando no botão abaixo para ver as
-              métricas.
+              Cadastre seu primeiro produto para ver as métricas.
             </Text>
           </View>
         ) : (
@@ -185,158 +184,3 @@ export function Home() {
     </View>
   );
 }
-
-const createStyles = (colors: ThemeColors) =>
-  StyleSheet.create({
-    pageContainer: {
-      flex: 1,
-      backgroundColor: colors.background,
-      // PADRÃO DE SEGURANÇA: 50px no topo
-      paddingTop: 50,
-    },
-    contentContainer: {
-      paddingHorizontal: 24,
-      // Espaço extra para não cortar conteúdo atrás do footer fixo
-      paddingBottom: 120,
-      flexGrow: 1, // IMPORTANTE: Permite que o conteúdo ocupe a tela toda para centralizar itens
-    },
-    headerSection: {
-      marginTop: 20,
-      marginBottom: 30,
-    },
-    title: {
-      fontSize: 28,
-      fontWeight: "bold",
-      color: colors["brown-dark"],
-      marginBottom: 8,
-    },
-    subtitle: {
-      fontSize: 16,
-      color: colors["base-text"],
-      opacity: 0.8,
-    },
-    // --- Estilos do Empty State ---
-    emptyContainer: {
-      flex: 1, // Ocupa o espaço restante
-      alignItems: "center",
-      justifyContent: "center",
-      paddingHorizontal: 20,
-      marginBottom: 40, // Equilíbrio visual (já que o header ocupa o topo)
-    },
-    emptyTitle: {
-      fontSize: 20,
-      fontWeight: "bold",
-      color: colors["base-text"],
-      marginTop: 20,
-      marginBottom: 8,
-    },
-    emptyText: {
-      textAlign: "center",
-      color: colors.brown,
-      fontSize: 16,
-      lineHeight: 24,
-    },
-    // ------------------------------
-    dashboardCard: {
-      backgroundColor: colors.white,
-      borderRadius: 16,
-      padding: 24,
-      shadowColor: colors["brown-dark"],
-      shadowOffset: { width: 0, height: 4 },
-      shadowOpacity: 0.1,
-      shadowRadius: 12,
-      elevation: 4,
-      borderWidth: 1,
-      borderColor: colors["base-card"],
-      marginBottom: 32,
-    },
-    cardTitle: {
-      fontSize: 12,
-      color: colors.brown,
-      textTransform: "uppercase",
-      fontWeight: "bold",
-      letterSpacing: 1,
-      marginBottom: 8,
-    },
-    cardValue: {
-      fontSize: 40,
-      fontWeight: "bold",
-      color: colors.success || "#00C851",
-    },
-    divider: {
-      height: 1,
-      backgroundColor: colors["base-card"],
-      marginVertical: 20,
-    },
-    statsRow: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-    },
-    statLabel: {
-      fontSize: 12,
-      color: colors["base-text"],
-      opacity: 0.7,
-      marginBottom: 4,
-    },
-    statValue: {
-      fontSize: 18,
-      fontWeight: "bold",
-      color: colors["brown-dark"],
-    },
-    recentSection: {
-      marginBottom: 20,
-    },
-    sectionTitle: {
-      fontSize: 18,
-      fontWeight: "bold",
-      color: colors["brown-dark"],
-      marginBottom: 16,
-    },
-    recentItem: {
-      backgroundColor: colors.white,
-      padding: 16,
-      borderRadius: 12,
-      marginBottom: 12,
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
-      borderWidth: 1,
-      borderColor: colors["base-card"],
-      shadowColor: "#000",
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.05,
-      shadowRadius: 4,
-      elevation: 2,
-    },
-    recentItemTitle: {
-      fontSize: 16,
-      fontWeight: "600",
-      color: colors["base-text"],
-      marginBottom: 4,
-    },
-    recentItemSubtitle: {
-      fontSize: 14,
-      color: colors.brown,
-    },
-    badgeContainer: {
-      backgroundColor: colors["base-card"],
-      paddingHorizontal: 10,
-      paddingVertical: 6,
-      borderRadius: 8,
-    },
-    badgeText: {
-      fontSize: 14,
-      fontWeight: "bold",
-    },
-    footer: {
-      position: "absolute",
-      bottom: 0,
-      left: 0,
-      right: 0,
-      padding: 24,
-      paddingBottom: 40,
-      backgroundColor: colors.background,
-      borderTopWidth: 1,
-      borderTopColor: colors["base-card"],
-    },
-  });

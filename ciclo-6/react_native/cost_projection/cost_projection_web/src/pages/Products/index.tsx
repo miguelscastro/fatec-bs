@@ -1,25 +1,20 @@
 import React, { useState, useCallback } from "react";
-import {
-  View,
-  Text,
-  FlatList,
-  ActivityIndicator,
-  StyleSheet,
-} from "react-native";
+import { View, Text, FlatList, ActivityIndicator } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { PackageOpen } from "lucide-react-native";
 
-import { useAppTheme, ThemeColors } from "../../hooks/useAppTheme";
+import { useAppTheme } from "../../hooks/useAppTheme";
 import { useAppSettings } from "../../hooks/useAppSettings";
 
 import { CardItem } from "../../components/CardItem";
 import { Execute } from "../../components/Execute";
 import { getProducts, Product } from "../../api/get-products";
+import { styles } from "./styles";
 
 export function Products() {
   const navigation = useNavigation<any>();
   const { colors } = useAppTheme();
-  const pageStyles = createStyles(colors);
+  const pageStyles = styles(colors);
   const { currency } = useAppSettings();
 
   const [items, setItems] = useState<any[]>([]);
@@ -102,75 +97,3 @@ export function Products() {
     </View>
   );
 }
-
-const createStyles = (colors: ThemeColors) =>
-  StyleSheet.create({
-    pageContainer: {
-      flex: 1,
-      backgroundColor: colors.background,
-      // PADRÃO DE SEGURANÇA: 50px no topo
-      paddingTop: 50,
-    },
-    headerSection: {
-      paddingHorizontal: 24,
-      marginTop: 10,
-      marginBottom: 20,
-    },
-    title: {
-      fontSize: 28,
-      fontWeight: "bold",
-      color: colors["brown-dark"],
-      marginBottom: 8,
-    },
-    subtitle: {
-      fontSize: 16,
-      color: colors["base-text"],
-      opacity: 0.8,
-    },
-    centerContainer: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    listContent: {
-      paddingHorizontal: 24, // Alinhamento lateral consistente
-      paddingTop: 10,
-      // Espaço grande no final para o conteúdo não ficar atrás do footer
-      paddingBottom: 140,
-      flexGrow: 1,
-    },
-    emptyContainer: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      marginTop: 60,
-      paddingHorizontal: 40,
-    },
-    emptyTitle: {
-      fontSize: 20,
-      fontWeight: "bold",
-      color: colors["base-text"],
-      marginTop: 20,
-      marginBottom: 8,
-    },
-    emptyText: {
-      textAlign: "center",
-      color: colors.brown,
-      fontSize: 16,
-      lineHeight: 24,
-    },
-    // Footer Fixo padronizado
-    footer: {
-      position: "absolute",
-      bottom: 0,
-      left: 0,
-      right: 0,
-      paddingHorizontal: 24,
-      // PADRÃO DE SEGURANÇA: 40px na base
-      paddingBottom: 40,
-      paddingTop: 16,
-      backgroundColor: colors.background,
-      borderTopWidth: 1,
-      borderTopColor: colors["base-card"],
-    },
-  });

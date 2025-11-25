@@ -1,0 +1,153 @@
+import { StyleSheet } from "react-native";
+import { ThemeColors } from "../../hooks/useAppTheme";
+
+export const styles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    pageContainer: {
+      flex: 1,
+      backgroundColor: colors.background,
+      paddingTop: 50,
+    },
+    contentContainer: {
+      paddingHorizontal: 24,
+      paddingBottom: 120,
+      flexGrow: 1,
+    },
+    headerSection: {
+      marginTop: 20,
+      marginBottom: 30,
+    },
+    title: {
+      fontSize: 28,
+      fontWeight: "bold",
+      color: colors["brown-dark"],
+      marginBottom: 8,
+    },
+    subtitle: {
+      fontSize: 16,
+      color: colors["base-text"],
+      opacity: 0.8,
+    },
+    emptyContainer: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+      paddingHorizontal: 20,
+      marginBottom: 40,
+    },
+    emptyTitle: {
+      fontSize: 20,
+      fontWeight: "bold",
+      color: colors["base-text"],
+      marginTop: 20,
+      marginBottom: 8,
+    },
+    emptyText: {
+      textAlign: "center",
+      color: colors.brown,
+      fontSize: 16,
+      lineHeight: 24,
+    },
+    dashboardCard: {
+      backgroundColor: colors.white,
+      borderRadius: 16,
+      padding: 24,
+      shadowColor: colors["brown-dark"],
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.1,
+      shadowRadius: 12,
+      elevation: 4,
+      borderWidth: 1,
+      borderColor: colors["base-card"],
+      marginBottom: 32,
+    },
+    cardTitle: {
+      fontSize: 12,
+      color: colors.brown,
+      textTransform: "uppercase",
+      fontWeight: "bold",
+      letterSpacing: 1,
+      marginBottom: 8,
+    },
+    cardValue: {
+      fontSize: 40,
+      fontWeight: "bold",
+      color: colors.success || "#00C851",
+    },
+    divider: {
+      height: 1,
+      backgroundColor: colors["base-card"],
+      marginVertical: 20,
+    },
+    statsRow: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+    },
+    statLabel: {
+      fontSize: 12,
+      color: colors["base-text"],
+      opacity: 0.7,
+      marginBottom: 4,
+    },
+    statValue: {
+      fontSize: 18,
+      fontWeight: "bold",
+      color: colors["brown-dark"],
+    },
+    recentSection: {
+      marginBottom: 20,
+    },
+    sectionTitle: {
+      fontSize: 18,
+      fontWeight: "bold",
+      color: colors["brown-dark"],
+      marginBottom: 16,
+    },
+    recentItem: {
+      backgroundColor: colors.white,
+      padding: 16,
+      borderRadius: 12,
+      marginBottom: 12,
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      borderWidth: 1,
+      borderColor: colors["base-card"],
+      shadowColor: "#000",
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.05,
+      shadowRadius: 4,
+      elevation: 2,
+    },
+    recentItemTitle: {
+      fontSize: 16,
+      fontWeight: "600",
+      color: colors["base-text"],
+      marginBottom: 4,
+    },
+    recentItemSubtitle: {
+      fontSize: 14,
+      color: colors.brown,
+    },
+    badgeContainer: {
+      backgroundColor: colors["base-card"],
+      paddingHorizontal: 10,
+      paddingVertical: 6,
+      borderRadius: 8,
+    },
+    badgeText: {
+      fontSize: 14,
+      fontWeight: "bold",
+    },
+    footer: {
+      position: "absolute",
+      bottom: 0,
+      left: 0,
+      right: 0,
+      padding: 24,
+      paddingBottom: 40,
+      backgroundColor: colors.background,
+      borderTopWidth: 1,
+      borderTopColor: colors["base-card"],
+    },
+  });

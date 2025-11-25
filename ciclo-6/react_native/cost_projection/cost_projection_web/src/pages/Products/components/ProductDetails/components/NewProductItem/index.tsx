@@ -1,24 +1,22 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  Alert,
-  Keyboard,
-  Platform,
-  StatusBar,
-} from "react-native";
+import { View, Text, ScrollView, Alert, Keyboard } from "react-native";
 import Slider from "@react-native-community/slider";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { useAppTheme } from "../../../../../../hooks/useAppTheme";
+import { getProductById } from "../../../../../../api/get-product-by-id";
+import { updateProduct } from "../../../../../../api/update-product";
+import { InputField } from "../../../../../../components/InputField";
+import { Header } from "../../../../../../components/Header";
+import { Execute } from "../../../../../../components/Execute";
+import { styles } from "./styles";
 
 export function NewProductItem() {
   const navigation = useNavigation<any>();
   const route = useRoute<any>();
-  // itemId é o ID do Produto Pai onde vamos adicionar este ingrediente
   const { itemId } = route.params || {};
 
   const { colors } = useAppTheme();
-  const pageStyles = createStyles(colors);
+  const pageStyles = styles(colors);
 
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
@@ -133,60 +131,3 @@ export function NewProductItem() {
     </ScrollView>
   );
 }
-
-// --- ESTILOS ---
-
-import { StyleSheet } from "react-native";
-import {
-  useAppTheme,
-  type ThemeColors,
-} from "../../../../../../hooks/useAppTheme";
-import { getProductById } from "../../../../../../api/get-product-by-id";
-import { updateProduct } from "../../../../../../api/update-product";
-import { InputField } from "../../../../../../components/InputField";
-import { Header } from "../../../../../../components/Header";
-import { Execute } from "../../../../../../components/Execute";
-
-export const createStyles = (colors: ThemeColors) =>
-  StyleSheet.create({
-    pageContainer: {
-      flex: 1,
-      backgroundColor: colors.background,
-      // Padding Top seguro igual ao EditProduct/ProductDetails
-      paddingTop:
-        Platform.OS === "android" ? (StatusBar.currentHeight || 24) + 10 : 50,
-    },
-    formContainer: {
-      flex: 1,
-      padding: 16,
-    },
-    // Estilização do container do Slider para combinar com o InputField
-    sliderWrapper: {
-      marginBottom: 20,
-      backgroundColor: colors.white, // Fundo branco opcional, ou transparente
-      paddingVertical: 8,
-    },
-    labelRow: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
-      marginBottom: 8,
-    },
-    label: {
-      fontSize: 14,
-      fontWeight: "bold",
-      color: colors["brown-dark"],
-      textTransform: "uppercase",
-    },
-    valueText: {
-      fontSize: 16,
-      fontWeight: "bold",
-      color: colors["brown-dark"],
-    },
-    hintText: {
-      fontSize: 12,
-      color: colors.brown,
-      textAlign: "center",
-      marginTop: -4,
-    },
-  });
