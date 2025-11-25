@@ -19,19 +19,19 @@ const lightColors = {
 };
 
 const darkColors = {
-  background: "#121212",
-  "base-card": "#1E1E1E",
-  "base-text": "#E0E0E0",
-  "brown-dark": "#E6D8D2",
-  brown: "#BBAAA3",
-  white: "#FFFFFF",
-  success: "#00C851",
+  background: "#121212", // Fundo profundo (Material Dark)
+  "base-card": "#2C2C2C", // Inputs e áreas secundárias mais claras que o fundo
+  "base-text": "#F5F5F5", // Texto principal claro para contraste
+  "brown-dark": "#D7CCC8", // BEGE CLARO: Para títulos e botões (contrasta com o fundo escuro)
+  brown: "#A1887F", // Marrom médio/rosado para textos secundários
+  white: "#1E1E1E", // TRUQUE: O "branco" vira cinza escuro (para Cards e fundos de área)
+  success: "#00E676", // Verde um pouco mais vibrante para o dark mode
   primary: "#8E7BFF",
-  surface: "#181818",
-  border: "#2C2C2C",
-  placeholder: "#757575",
-  error: "#ff6b6b",
-  subtext: "#9a9a9a",
+  surface: "#1E1E1E", // Superfícies elevadas
+  border: "#333333",
+  placeholder: "#666666",
+  error: "#FF5252", // Vermelho mais suave/pastel
+  subtext: "#9E9E9E",
 };
 
 export const baseFonts = {

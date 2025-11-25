@@ -19,7 +19,9 @@ import { Products } from "./src/pages/Products";
 import { NewProduct } from "./src/pages/NewProduct";
 import { Settings } from "./src/pages/Settings";
 import { ProductDetails } from "./src/pages/Products/components/ProductDetails";
-import { NewProductItem } from "./src/pages/NewProduct/components/NewProductItem";
+import { NewProductItem } from "./src/pages/Products/components/ProductDetails/components/NewProductItem";
+import { EditProduct } from "./src/pages/Products/components/ProductDetails/components/EditProduct";
+import { EditProductItem } from "./src/pages/Products/components/ProductDetails/components/EditProductItem";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -129,6 +131,16 @@ export default function App() {
               animation: "slide_from_bottom",
               title: "Adicionar Item",
             }}
+          />
+          <Stack.Screen
+            name="EditProduct"
+            component={EditProduct}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="EditProductItem"
+            component={EditProductItem}
+            options={{ headerShown: false }}
           />
         </Stack.Navigator>
       </NavigationContainer>
