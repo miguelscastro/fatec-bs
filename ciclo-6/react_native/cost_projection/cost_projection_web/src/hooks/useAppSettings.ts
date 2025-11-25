@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// --- CHAVES DE ARMAZENAMENTO ---
 const KEYS = {
   THEME: "@settings:theme",
   CURRENCY: "@settings:currency",
 };
 
-// --- EMISSOR DE EVENTOS ARTESANAL (ZERO DEPENDÊNCIAS) ---
-// Substitui o 'events' do Node.js
 class SimpleEventEmitter {
   private listeners: Record<string, Array<(val: any) => void>> = {};
 
@@ -33,16 +30,13 @@ class SimpleEventEmitter {
   }
 }
 
-// Instância única global (Singleton) para todo o app
 const settingsEvents = new SimpleEventEmitter();
 
-// --- O HOOK ---
 export function useAppSettings() {
   const [theme, setThemeState] = useState<"light" | "dark">("light");
   const [currency, setCurrencyState] = useState("R$");
   const [loading, setLoading] = useState(true);
 
-  // 1. Carrega dados iniciais e configura ouvintes
   useEffect(() => {
     let mounted = true;
 
@@ -62,7 +56,6 @@ export function useAppSettings() {
     }
     load();
 
-    // Funções que atualizam o estado local quando o evento global dispara
     const onThemeChange = (t: "light" | "dark") => {
       if (mounted) setThemeState(t);
     };
@@ -70,11 +63,9 @@ export function useAppSettings() {
       if (mounted) setCurrencyState(c);
     };
 
-    // Inscreve nos eventos
     settingsEvents.on("change:theme", onThemeChange);
     settingsEvents.on("change:currency", onCurrencyChange);
 
-    // Limpeza ao desmontar
     return () => {
       mounted = false;
       settingsEvents.off("change:theme", onThemeChange);
@@ -82,13 +73,9 @@ export function useAppSettings() {
     };
   }, []);
 
-  // 2. Funções para alterar (Salva no disco e avisa todo mundo)
   const setTheme = async (newTheme: "light" | "dark") => {
-    // Atualiza estado local instantaneamente
     setThemeState(newTheme);
-    // Dispara evento para outras telas atualizarem
     settingsEvents.emit("change:theme", newTheme);
-    // Salva no disco
     await AsyncStorage.setItem(KEYS.THEME, newTheme);
   };
 

@@ -7,7 +7,7 @@ import { styles } from "./styles";
 interface HeaderProps {
   title: string;
   onBack?: () => void;
-  showBack?: boolean; // Nova prop opcional para forçar mostrar/esconder
+  showBack?: boolean; 
 }
 
 export function Header({ title, onBack, showBack = true }: HeaderProps) {
@@ -15,7 +15,6 @@ export function Header({ title, onBack, showBack = true }: HeaderProps) {
   const { colors } = useAppTheme();
   const componentStyles = styles(colors);
 
-  // Se não passar onBack, tenta usar o goBack do navigation
   const handleBack = () => {
     if (onBack) {
       onBack();
@@ -24,7 +23,6 @@ export function Header({ title, onBack, showBack = true }: HeaderProps) {
     }
   };
 
-  // Decide se mostra o botão (se showBack for true E tiver ação ou navegação anterior)
   const shouldShowBack = showBack && (onBack || navigation.canGoBack());
 
   return (

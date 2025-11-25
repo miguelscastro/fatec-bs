@@ -5,16 +5,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import {
   Home as HomeIcon,
-  Calculator,
   List,
   Settings as SettingsIcon,
-  Pin,
+  Plus,
 } from "lucide-react-native";
 
-// Hook de Tema
 import { useAppTheme } from "./src/hooks/useAppTheme";
 
-// Importação das Páginas
 import { Home } from "./src/pages/Home";
 import { Products } from "./src/pages/Products";
 import { NewProduct } from "./src/pages/NewProduct";
@@ -27,14 +24,13 @@ import { EditProductItem } from "./src/pages/Products/components/ProductDetails/
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-// 1. Navegador de Abas (A tela principal do App)
 function AppTabs() {
   const { colors, isDark } = useAppTheme();
 
   return (
     <Tab.Navigator
       screenOptions={{
-        headerShown: false, // Removemos o header padrão do navegador (suas telas já têm header próprio)
+        headerShown: false,
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: isDark ? "#888" : "#999",
         tabBarStyle: {
@@ -61,7 +57,7 @@ function AppTabs() {
         component={NewProduct}
         options={{
           tabBarLabel: "Adicionar",
-          tabBarIcon: ({ color, size }) => <Pin color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => <Plus color={color} size={size} />,
         }}
       />
 
@@ -88,8 +84,6 @@ function AppTabs() {
   );
 }
 
-// 2. Navegador de Pilha (Root)
-// Ele segura as Abas + Telas que precisam cobrir as abas (Detalhes, Modais, etc)
 export default function App() {
   const { colors, isDark, theme } = useAppTheme();
 
@@ -103,8 +97,6 @@ export default function App() {
       border: colors.border,
       notification: colors.primary,
     },
-    // Some navigation internals expect `theme.fonts.regular` to exist.
-    // Provide the fonts object so libraries don't read `regular` of undefined.
     fonts: (theme && (theme as any).fonts) || { regular: { fontSize: 16 } },
   };
 
@@ -112,10 +104,7 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer theme={navTheme as any}>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          {/* A tela inicial é o conjunto de abas */}
           <Stack.Screen name="Root" component={AppTabs} />
-
-          {/* Telas de "segundo nível" (ficam por cima das abas) */}
           <Stack.Screen
             name="ProductDetails"
             component={ProductDetails}
@@ -126,7 +115,7 @@ export default function App() {
             name="NewProductItem"
             component={NewProductItem}
             options={{
-              presentation: "modal", // Abre puxando de baixo pra cima (estilo iOS)
+              presentation: "modal",
               animation: "slide_from_bottom",
               title: "Adicionar Item",
             }}

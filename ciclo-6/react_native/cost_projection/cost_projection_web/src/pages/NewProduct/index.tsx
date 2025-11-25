@@ -31,7 +31,7 @@ export function NewProduct() {
     try {
       const body = {
         name: title,
-        salePrice: Number(salePrice.replace(",", ".")) || 0, // Garante formato numérico correto
+        salePrice: Number(salePrice.replace(",", ".")) || 0, 
         ingredients: [],
       };
 

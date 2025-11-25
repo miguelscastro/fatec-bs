@@ -199,7 +199,6 @@ export function ProductDetails() {
 
   return (
     <View style={pageStyles.pageContainer}>
-      {/* Header Fixo */}
       <View style={pageStyles.headerWrapper}>
         <Header
           title={item?.name || "Detalhes"}
@@ -279,7 +278,6 @@ export function ProductDetails() {
         </ScrollView>
       )}
 
-      {/* Footer Fixo na parte inferior */}
       <View style={pageStyles.footer}>
         <Execute title="ADICIONAR INGREDIENTE" onPress={handleAddItem} />
       </View>

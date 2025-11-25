@@ -39,23 +39,20 @@ export function NewProductItem() {
     setLoading(true);
 
     try {
-      // 1. Busca o produto atual para pegar os ingredientes existentes
       const product = await getProductById(itemId);
 
       const newIngredient = {
         name,
-        quantity: Number(quantity.toFixed(2)), // Garante precisão decimal
-        unitCost: Number(cost.replace(",", ".")) || 0, // Trata vírgula
+        quantity: Number(quantity.toFixed(2)), 
+        unitCost: Number(cost.replace(",", ".")) || 0, 
       };
 
-      // 2. Mapeia os existentes para o formato correto (sem _id se a API exigir payload limpo)
       const currentIngredients = product.ingredients.map((ing) => ({
         name: ing.name,
         quantity: ing.quantity,
         unitCost: ing.unitCost,
       }));
 
-      // 3. Atualiza enviando a lista antiga + o novo
       await updateProduct(itemId, {
         name: product.name,
         salePrice: product.salePrice,
@@ -89,7 +86,6 @@ export function NewProductItem() {
           placeholder="Ex: Farinha de Trigo"
         />
 
-        {/* Área do Slider estilizada para parecer um Input */}
         <View style={pageStyles.sliderWrapper}>
           <View style={pageStyles.labelRow}>
             <Text style={pageStyles.label}>Quantidade</Text>
@@ -103,7 +99,6 @@ export function NewProductItem() {
             step={0.1}
             value={quantity}
             onValueChange={setQuantity}
-            // Usando as cores do seu tema
             minimumTrackTintColor={colors["brown-dark"]}
             maximumTrackTintColor={colors["base-card"]}
             thumbTintColor={colors["brown-dark"]}

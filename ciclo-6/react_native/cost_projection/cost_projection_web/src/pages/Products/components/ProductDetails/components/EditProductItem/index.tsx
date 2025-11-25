@@ -19,7 +19,6 @@ export function EditProductItem() {
   const { colors } = useAppTheme();
   const pageStyles = styles(colors);
 
-  // Inicializa com os dados do ingrediente recebido
   const [name, setName] = useState(ingredient?.name || "");
   const [quantity, setQuantity] = useState(ingredient?.quantity || 1);
   const [cost, setCost] = useState(ingredient?.unitCost?.toString() || "");
@@ -41,23 +40,18 @@ export function EditProductItem() {
     setLoading(true);
 
     try {
-      // 1. Busca o produto atualizado para garantir que temos a lista mais recente
       const product = await getProductById(productId);
 
-      // 2. Cria o objeto do ingrediente atualizado
       const updatedIngredient = {
         name,
         quantity: Number(quantity.toFixed(2)),
         unitCost: Number(cost.replace(",", ".")),
       };
 
-      // 3. Substitui o ingrediente antigo pelo novo na lista, mantendo os outros intocados
       const updatedIngredientsList = product.ingredients.map((ing) => {
-        // Compara pelo ID para encontrar qual atualizar
         if (ing._id === ingredient._id) {
           return updatedIngredient;
         }
-        // Para os outros, retorna uma cópia limpa (sem _id se necessário, ou completo)
         return {
           name: ing.name,
           quantity: ing.quantity,
@@ -65,7 +59,6 @@ export function EditProductItem() {
         };
       });
 
-      // 4. Envia o produto completo atualizado
       await updateProduct(productId, {
         name: product.name,
         salePrice: product.salePrice,

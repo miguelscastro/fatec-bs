@@ -13,8 +13,8 @@ interface SelectProps {
   pickerItems: PickerItemData[];
   selectedValue: string;
   onValueChange: (itemValue: string, itemIndex: number) => void;
-  label?: string; // Adicionei opcional caso queira usar no futuro
-  theme?: string; // Mantido para compatibilidade
+  label?: string; 
+  theme?: string; 
 }
 
 export function Select({

@@ -7,8 +7,6 @@ export const BASE_URL = "https://cost-projection.vercel.app/";
 
 const api = axios.create({ baseURL: BASE_URL, timeout: 5000 });
 
-console.log("[api] baseURL=", BASE_URL);
-
 const generateUniqueId = () => {
   return Date.now().toString(36) + Math.random().toString(36).substring(2);
 };

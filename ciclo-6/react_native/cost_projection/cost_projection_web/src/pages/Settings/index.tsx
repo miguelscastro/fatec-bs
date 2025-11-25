@@ -10,7 +10,6 @@ export function Settings() {
   const { theme, setTheme } = useAppSettings();
   const pageStyles = styles(colors);
 
-  // Componente interno para itens de lista
   const SettingsItem = ({
     icon: Icon,
     label,
@@ -46,13 +45,11 @@ export function Settings() {
 
   return (
     <View style={pageStyles.pageContainer}>
-      {/* Header Simples */}
       <View style={pageStyles.header}>
         <Text style={pageStyles.headerTitle}>Ajustes</Text>
       </View>
 
       <ScrollView contentContainerStyle={pageStyles.scrollContent}>
-        {/* Seção: Aparência */}
         <Text style={pageStyles.sectionTitle}>APARÊNCIA</Text>
         <View style={pageStyles.sectionBox}>
           <SettingsItem

@@ -17,7 +17,6 @@ export function EditProduct() {
   const { colors } = useAppTheme();
   const pageStyles = styles(colors);
 
-  // Inicializa os estados com os valores atuais do produto
   const [name, setName] = useState(productToEdit?.name || "");
   const [salePrice, setSalePrice] = useState(
     productToEdit?.salePrice?.toString() || ""
@@ -35,9 +34,6 @@ export function EditProduct() {
 
     setLoading(true);
     try {
-      // Mantemos os ingredientes originais, alterando apenas nome e preço
-      // A API espera o array de ingredientes limpo (sem _id se for re-envio estrito,
-      // mas aqui mapeamos para garantir a estrutura correta)
       const currentIngredients = productToEdit.ingredients.map((ing: any) => ({
         name: ing.name,
         quantity: ing.quantity,
@@ -46,7 +42,7 @@ export function EditProduct() {
 
       await updateProduct(productToEdit._id, {
         name,
-        salePrice: Number(salePrice.replace(",", ".")), // Garante formato numérico
+        salePrice: Number(salePrice.replace(",", ".")), 
         ingredients: currentIngredients,
       });
 
@@ -96,7 +92,6 @@ export function EditProduct() {
           <Execute
             title={loading ? "SALVANDO..." : "SALVAR ALTERAÇÕES"}
             onPress={handleSave}
-            // Se o componente Execute aceitar prop disabled/loading, passe aqui
           />
         </View>
       </View>

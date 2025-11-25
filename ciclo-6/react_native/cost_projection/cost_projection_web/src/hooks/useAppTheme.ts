@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { useAppSettings } from "./useAppSettings";
 
-// Palette definitions for light and dark
 const lightColors = {
   background: "#FAFAFA",
   "base-card": "#F3F2F2",
@@ -19,18 +18,18 @@ const lightColors = {
 };
 
 const darkColors = {
-  background: "#121212", // Fundo profundo (Material Dark)
-  "base-card": "#2C2C2C", // Inputs e áreas secundárias mais claras que o fundo
-  "base-text": "#F5F5F5", // Texto principal claro para contraste
-  "brown-dark": "#D7CCC8", // BEGE CLARO: Para títulos e botões (contrasta com o fundo escuro)
-  brown: "#A1887F", // Marrom médio/rosado para textos secundários
-  white: "#1E1E1E", // TRUQUE: O "branco" vira cinza escuro (para Cards e fundos de área)
-  success: "#00E676", // Verde um pouco mais vibrante para o dark mode
+  background: "#121212",
+  "base-card": "#2C2C2C",
+  "base-text": "#F5F5F5",
+  "brown-dark": "#D7CCC8",
+  brown: "#A1887F",
+  white: "#1E1E1E",
+  success: "#00E676",
   primary: "#8E7BFF",
-  surface: "#1E1E1E", // Superfícies elevadas
+  surface: "#1E1E1E",
   border: "#333333",
   placeholder: "#666666",
-  error: "#FF5252", // Vermelho mais suave/pastel
+  error: "#FF5252",
   subtext: "#9E9E9E",
 };
 
@@ -49,12 +48,8 @@ export function useAppTheme() {
 
   const colors = useMemo(() => (isDark ? darkColors : lightColors), [isDark]);
 
-  // Provide a `fonts` object with common keys (regular/medium/light/thin)
-  // so third-party components that access `theme.fonts.regular` don't crash.
   const themeFonts = {
-    // existing named font styles
     ...baseFonts,
-    // common keys expected by some UI libraries
     regular: { fontSize: 16 },
     medium: { fontSize: 16, fontWeight: "500" },
     light: { fontSize: 16, fontWeight: "300" },

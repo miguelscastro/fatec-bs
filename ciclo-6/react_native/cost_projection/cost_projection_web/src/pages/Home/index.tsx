@@ -75,7 +75,6 @@ export function Home() {
         contentContainerStyle={pageStyles.contentContainer}
         showsVerticalScrollIndicator={false}
       >
-        {/* Cabeçalho */}
         <View style={pageStyles.headerSection}>
           <Text style={pageStyles.title}>Olá!</Text>
           <Text style={pageStyles.subtitle}>
@@ -90,7 +89,6 @@ export function Home() {
             <ActivityIndicator color={colors["brown-dark"]} />
           </View>
         ) : metrics.count === 0 ? (
-          // --- EMPTY STATE (Igual da Products) ---
           <View style={pageStyles.emptyContainer}>
             <PackageOpen size={64} color={colors.brown} />
             <Text style={pageStyles.emptyTitle}>Nada por aqui ainda</Text>
@@ -99,9 +97,7 @@ export function Home() {
             </Text>
           </View>
         ) : (
-          // --- DASHBOARD + LISTA RECENTE ---
           <>
-            {/* Card de Dashboard */}
             <View style={pageStyles.dashboardCard}>
               <Text style={pageStyles.cardTitle}>Lucro Potencial Estimado</Text>
               <Text style={pageStyles.cardValue}>
@@ -126,7 +122,6 @@ export function Home() {
               </View>
             </View>
 
-            {/* Seção: Últimos Adicionados */}
             {recentProducts.length > 0 && (
               <View style={pageStyles.recentSection}>
                 <Text style={pageStyles.sectionTitle}>Últimos Adicionados</Text>
@@ -174,7 +169,6 @@ export function Home() {
         )}
       </ScrollView>
 
-      {/* Botão Principal Fixo na Base */}
       <View style={pageStyles.footer}>
         <Execute
           title="GERENCIAR PRODUTOS"

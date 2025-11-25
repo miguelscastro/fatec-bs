@@ -46,7 +46,6 @@ export function Products() {
 
   return (
     <View style={pageStyles.pageContainer}>
-      {/* Cabeçalho estilo Home */}
       <View style={pageStyles.headerSection}>
         <Text style={pageStyles.title}>Meus Produtos</Text>
         <Text style={pageStyles.subtitle}>
@@ -87,7 +86,6 @@ export function Products() {
         />
       )}
 
-      {/* Footer Fixo estilo Home */}
       <View style={pageStyles.footer}>
         <Execute
           title="+ Novo Produto"

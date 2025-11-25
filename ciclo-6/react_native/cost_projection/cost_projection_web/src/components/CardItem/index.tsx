@@ -32,7 +32,6 @@ export function CardItem({ item, onDelete, onPress, currency }: CardItemProps) {
     item.profitMargin !== undefined && item.profitMargin !== null;
   const margin = item.profitMargin || 0;
 
-  // Lógica de Cor: Verde se positivo/zero, Vermelho se negativo
   const successColor = colors.success || "#00C851";
   const errorColor = "#E53935";
   const markerColor = margin >= 0 ? successColor : errorColor;
@@ -41,9 +40,7 @@ export function CardItem({ item, onDelete, onPress, currency }: CardItemProps) {
 
   return (
     <Container style={componentStyles.cardContainer} onPress={onPress}>
-      {/* Conteúdo principal do card em linha */}
       <View style={componentStyles.contentRow}>
-        {/* Lado Esquerdo: Textos */}
         <View style={componentStyles.leftContent}>
           <Text style={componentStyles.itemName} numberOfLines={1}>
             {item.name || item.title}
@@ -51,20 +48,17 @@ export function CardItem({ item, onDelete, onPress, currency }: CardItemProps) {
 
           <Text style={componentStyles.itemDetails}>
             {item.quantity !== undefined ? (
-              // Layout de Ingrediente
               <>
                 Qtd: {item.quantity.toFixed(2)} | Unit: {currency}{" "}
                 {unitCost.toFixed(2)}
                 {"\n"}Subtotal: {currency} {subtotal.toFixed(2)}
               </>
             ) : (
-              // Layout de Produto (apenas custo)
               `Custo Prod.: ${currency} ${unitCost.toFixed(2)}`
             )}
           </Text>
         </View>
 
-        {/* Lado Direito: Apenas o botão de deletar agora (se existir) */}
         {onDelete && (
           <View style={componentStyles.rightContent}>
             <Pressable
@@ -78,7 +72,6 @@ export function CardItem({ item, onDelete, onPress, currency }: CardItemProps) {
         )}
       </View>
 
-      {/* O MARCADOR DE MARGEM (Posicionado Absolutamente) */}
       {hasMargin && (
         <View
           style={[
