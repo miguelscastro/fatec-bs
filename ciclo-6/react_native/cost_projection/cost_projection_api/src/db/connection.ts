@@ -3,12 +3,27 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-let isConnected = false;
+/**
+ * Interface para definir o tipo do cache global
+ */
+interface MongooseCache {
+  conn: typeof mongoose | null;
+  promise: Promise<typeof mongoose> | null;
+}
 
-export const connectToDatabase = async (): Promise<void> => {
-  if (isConnected) {
-    console.log("=> Using existing database connection");
-    return;
+// Em Serverless, precisamos salvar a conexão no objeto 'global'
+// para que ela sobreviva a re-invocações ("warm starts").
+let cached: MongooseCache = (global as any).mongoose;
+
+if (!cached) {
+  cached = (global as any).mongoose = { conn: null, promise: null };
+}
+
+export const connectToDatabase = async () => {
+  // 1. Se já existe uma conexão ativa no cache, usa ela imediatamente.
+  if (cached.conn) {
+    // console.log("=> Using existing database connection");
+    return cached.conn;
   }
 
   if (!process.env.MONGODB_URI) {
@@ -17,12 +32,28 @@ export const connectToDatabase = async (): Promise<void> => {
     );
   }
 
-  try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    isConnected = true;
-    console.log("=> Database connected successfully");
-  } catch (error) {
-    console.error("=> Error connecting to database:", error);
-    process.exit(1);
+  // 2. Se não existe uma promessa de conexão, cria uma.
+  if (!cached.promise) {
+    const opts = {
+      bufferCommands: false, // Importante para Serverless: impede que o Mongoose fique "esperando" indefinidamente se a conexão cair.
+    };
+
+    cached.promise = mongoose
+      .connect(process.env.MONGODB_URI, opts)
+      .then((mongooseInstance) => {
+        console.log("=> New database connection established");
+        return mongooseInstance;
+      });
   }
+
+  // 3. Aguarda a promessa resolver e salva no cache
+  try {
+    cached.conn = await cached.promise;
+  } catch (e) {
+    cached.promise = null; // Se der erro, limpa a promessa para tentar de novo na próxima
+    console.error("=> Error connecting to database:", e);
+    throw e; // Lança o erro para a Vercel registrar, em vez de matar o processo
+  }
+
+  return cached.conn;
 };
