@@ -3,16 +3,13 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-/**
- * Interface para definir o tipo do cache global
- */
+
 interface MongooseCache {
   conn: typeof mongoose | null;
   promise: Promise<typeof mongoose> | null;
 }
 
-// Em Serverless, precisamos salvar a conexão no objeto 'global'
-// para que ela sobreviva a re-invocações ("warm starts").
+
 let cached: MongooseCache = (global as any).mongoose;
 
 if (!cached) {
@@ -20,9 +17,7 @@ if (!cached) {
 }
 
 export const connectToDatabase = async () => {
-  // 1. Se já existe uma conexão ativa no cache, usa ela imediatamente.
   if (cached.conn) {
-    // console.log("=> Using existing database connection");
     return cached.conn;
   }
 
@@ -32,10 +27,9 @@ export const connectToDatabase = async () => {
     );
   }
 
-  // 2. Se não existe uma promessa de conexão, cria uma.
   if (!cached.promise) {
     const opts = {
-      bufferCommands: false, // Importante para Serverless: impede que o Mongoose fique "esperando" indefinidamente se a conexão cair.
+      bufferCommands: false, 
     };
 
     cached.promise = mongoose
@@ -46,13 +40,12 @@ export const connectToDatabase = async () => {
       });
   }
 
-  // 3. Aguarda a promessa resolver e salva no cache
   try {
     cached.conn = await cached.promise;
   } catch (e) {
-    cached.promise = null; // Se der erro, limpa a promessa para tentar de novo na próxima
+    cached.promise = null; 
     console.error("=> Error connecting to database:", e);
-    throw e; // Lança o erro para a Vercel registrar, em vez de matar o processo
+    throw e; 
   }
 
   return cached.conn;
